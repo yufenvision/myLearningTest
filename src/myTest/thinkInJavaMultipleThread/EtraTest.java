@@ -1,4 +1,4 @@
-package myTest.multipleThread;
+package myTest.thinkInJavaMultipleThread;
 /**
 * @author dyf
 * @version 创建时间：2019年2月27日 下午11:19:17
