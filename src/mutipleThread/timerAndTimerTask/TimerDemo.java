@@ -1,4 +1,4 @@
-package myPractise.timer;
+package mutipleThread.timerAndTimerTask;
 
 import java.util.Timer;
 import java.util.TimerTask;
