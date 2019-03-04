@@ -42,8 +42,9 @@ public class Soda {
 		}
 		this.name = name;
 		this.size = size;
-		
 		this.flag = true;
+		
+		System.out.println(Thread.currentThread().getName() + "：" + this);
 		this.notify();
 	}
 	
@@ -61,8 +62,8 @@ public class Soda {
 			}
 			
 			Thread.currentThread();
-			Thread.sleep(100);;
-			System.out.println(this.name+":"+this.size+"--喝完了");
+			Thread.sleep(100);
+			System.out.println(Thread.currentThread().getName() + "：" + this.name+":"+this.size+"--喝完了");
 			
 			this.flag = false;
 			this.notify();
@@ -71,4 +72,11 @@ public class Soda {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Soda [name=" + name + ", size=" + size + ", flag=" + flag + "]";
+	}
+	
+	
 }
