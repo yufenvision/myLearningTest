@@ -9,7 +9,7 @@ import java.util.Date;
 * 
 */
 public class ThreadStop extends Thread{
-	SimpleDateFormat sm = new SimpleDateFormat("yyyy-HH-dd HH:mm:ss SSS");
+	SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
 	
 	public void run(){
 		

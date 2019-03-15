@@ -6,10 +6,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.poi.ss.formula.functions.T;
 
 public class ThreadSafeClass {
-	public static void main(String[] args) {
+	public static <T> void main(String[] args) {
 		//线程安全的类 
 		StringBuffer sb = new StringBuffer();
 		Vector<String> v = new Vector<>();
