@@ -1,4 +1,4 @@
-package myPractise.multipleThread;
+package mutipleThread;
 
 /**
  * 匿名内部类的格式：

@@ -1,4 +1,4 @@
-package myPractise.multipleThread;
+package mutipleThread.sellSoda;
 
 /**
  * 等待唤醒：

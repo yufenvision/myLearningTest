@@ -1,4 +1,4 @@
-package myPractise.multipleThread;
+package mutipleThread.threadPool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
  *		D:我就要结束，可以吗?
  *			可以。
  */
-public class ExecutorsDemo {
+public class ThreadPoolDemo {
 	public static void main(String[] args) {
 		// 创建一个线程池对象，控制要创建几个线程对象。
 		// public static ExecutorService newFixedThreadPool(int nThreads)

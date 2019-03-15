@@ -1,4 +1,4 @@
-package myPractise.multipleThread;
+package mutipleThread.threadPool;
 
 import java.util.concurrent.Callable;
 
@@ -18,6 +18,7 @@ public class MyCallable implements Callable<Integer>{
 		this.number = number;
 	}
 
+	//和run相比，call可以返回值！
 	@Override
 	public Integer call() throws Exception {
 		int sum = 0;

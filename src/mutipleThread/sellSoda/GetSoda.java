@@ -1,4 +1,4 @@
-package myPractise.multipleThread;
+package mutipleThread.sellSoda;
 
 public class GetSoda implements Runnable{
 

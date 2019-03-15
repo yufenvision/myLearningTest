@@ -1,4 +1,4 @@
-package myPractise.multipleThread;
+package mutipleThread.threadPool;
 
 public class MyRunnable implements Runnable{
 
