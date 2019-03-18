@@ -22,6 +22,7 @@ public interface MyDefinedInterface {
 //			e.printStackTrace();
 //		}
 		
+		//需要创建MEA-INF文件夹，里面放接口的全限定名文件，再在该文件中写入实现类的全限定名
 		ServiceLoader<MyDefinedInterface> loader = ServiceLoader.load(MyDefinedInterface.class);
 		for (MyDefinedInterface myDefinedInterface : loader) {
 			System.out.println(myDefinedInterface);
