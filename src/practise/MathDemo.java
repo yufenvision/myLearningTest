@@ -10,14 +10,19 @@ public class MathDemo {
 		System.out.println(Math.PI);
 		BigDecimal bd1 = new BigDecimal("0.2");
 		BigDecimal bd2 = new BigDecimal("0.002");
-		BigDecimal bd3 = new BigDecimal(0.2);//´æÈ¡µÄÊÇdoubleÀàĞÍ£¬ËùÒÔ²»×¼È·
+		BigDecimal bd3 = new BigDecimal(0.2);//æ„é€ å‡½æ•°æŸå¤±äº†doubleå‚æ•°çš„ç²¾åº¦
 		BigDecimal bd4 = new BigDecimal(0.002);
 		System.out.println(bd1.add(bd2));
 		System.out.println(bd3.add(bd4));
+
+		System.out.println("===========================");
+		int num = (int)(Math.random() * 11);
+		System.out.println(num);
+		double d = Math.random();//[0,1)
+		System.out.println(d);
+		System.out.println((int)d);//å¼ºè½¬ä¼šå‘ä¸‹å–æ•´
+		System.out.println("===========================");
 		
-//		int num = (int)(10*Math.random());
-//		System.out.println(num);
-//		System.out.println(Math.random());//[0,1)
 		Random rd = new Random();
 		Random rd2 = new Random();
 		System.out.println(rd.nextInt(3));
