@@ -5,7 +5,7 @@ import java.util.Random;
 public class RandomDemo {
 
 	public static void main(String[] args) {
-		// È¡³öËÄÎ»
+		// È¡ï¿½ï¿½ï¿½ï¿½Î»
 		String str1 = "";
 		for(int i = 0;i<4;i++){
 			str1 += getOne();
@@ -15,7 +15,7 @@ public class RandomDemo {
 	
 	public static String getOne(){
 		String str = "123456789asdfghjkl%$";
-//		´Ó×Ö·û´®ÀïÃæËæ¼´È¡Ò»¸ö×Ö·û
+//		ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¼´È¡Ò»ï¿½ï¿½ï¿½Ö·ï¿½
 		Random rd = new Random();
 		int index = rd.nextInt(str.length()); 
 		char c = str.charAt(index);
