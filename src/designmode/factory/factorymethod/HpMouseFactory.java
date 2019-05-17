@@ -5,9 +5,9 @@ package designmode.factory.factorymethod;
  * @Date: 2019/5/16 21:53
  * @Description:
  */
-public class CatFactory implements Factory {
+public class HpMouseFactory implements Factory {
     @Override
-    public Animal createAnimal() {
-        return new Cat();
+    public Mouse createMouse() {
+        return new HpMouse();
     }
 }

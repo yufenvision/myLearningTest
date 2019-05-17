@@ -5,9 +5,9 @@ package designmode.factory.factorymethod;
  * @Date: 2019/5/16 21:50
  * @Description:
  */
-public class DogFactory implements Factory {
+public class DellMouseFactory implements Factory {
     @Override
-    public Animal createAnimal() {
-        return new Dog();
+    public Mouse createMouse() {
+        return new DellMouse();
     }
 }

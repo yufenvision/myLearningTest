@@ -6,5 +6,5 @@ package designmode.factory.factorymethod;
  * @Description:
  */
 public interface Factory {
-    public Animal createAnimal();
+    Mouse createMouse();
 }

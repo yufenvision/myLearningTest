@@ -5,10 +5,10 @@ package designmode.factory.simplefactory;
  * @Date: 2019/5/16 20:53
  * @Description:
  */
-public class Dog extends Animal {
+public class HpMouse extends Mouse {
 
     @Override
-    public void eat() {
-        System.out.println("狗吃肉");
+    public void logo() {
+        System.out.println("惠普鼠标");
     }
 }

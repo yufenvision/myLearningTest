@@ -5,6 +5,6 @@ package designmode.factory.simplefactory;
  * @Date: 2019/5/16 20:49
  * @Description:
  */
-public abstract class Animal {
-    public abstract void eat();
+public abstract class Mouse {
+    public abstract void logo();
 }
