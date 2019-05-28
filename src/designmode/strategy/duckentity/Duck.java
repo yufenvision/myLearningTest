@@ -27,7 +27,7 @@ public abstract class Duck {
         flyBehavior.fly();//委托给行为类
     }
     public void performQuack(){
-        quackBehavior.quack();
+        quackBehavior.quack();//委托给行为类
     }
 
     public void swim(){
