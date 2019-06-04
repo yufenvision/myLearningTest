@@ -14,7 +14,7 @@ public class Test {
 		System.out.println(MD5Utils.getMD5String(password));
 		System.out.println(MD5Utils.getMD5String(password1));
 		System.out.println(MD5Utils.getMD5String(password2));
-		
-		
+
+
 	}
 }

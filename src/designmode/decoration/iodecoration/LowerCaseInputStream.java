@@ -1,4 +1,4 @@
-package designmode.decoration.beverage;
+package designmode.decoration.iodecoration;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
