@@ -12,14 +12,14 @@ public class DuckTestDrive {
         WildTurkey turkey = new WildTurkey();
         Duck turkeyAdapter = new TuekeyAdapter(turkey);
 
-        System.out.println("火鸡说：...");
+        System.out.println("火鸡说：。。。。。。。。。。。。。。");
         turkey.gobble();
         turkey.fly();
 
-        System.out.println("鸭子说：。。。");
+        System.out.println("鸭子说：。。。。。。。。。。。。。。");
         testDuck(duck);
 
-        System.out.println("火鸡适配器说:");
+        System.out.println("火鸡适配器说:。。。。。。。。。。。。");
         testDuck(turkeyAdapter);
 
     }
