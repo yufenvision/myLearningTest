@@ -1,4 +1,4 @@
-package designmode.factory.abstractfactory;
+package designmode.factory.mouse;
 
 /**
  * @Author: dyf

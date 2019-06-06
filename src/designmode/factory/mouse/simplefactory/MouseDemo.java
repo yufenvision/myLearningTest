@@ -1,4 +1,8 @@
-package designmode.factory.simplefactory;
+package designmode.factory.mouse.simplefactory;
+
+import designmode.factory.mouse.DellMouse;
+import designmode.factory.mouse.HpMouse;
+import designmode.factory.mouse.Mouse;
 
 /**
  * @Author: dyf
