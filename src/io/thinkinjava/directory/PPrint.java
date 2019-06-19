@@ -18,7 +18,7 @@ public class PPrint{
             result.append(ele);
         }
         if(c.size() != 1)
-            result.append("\n ");
+            result.append("\n");
         result.append("]");
         return result.toString();
     }

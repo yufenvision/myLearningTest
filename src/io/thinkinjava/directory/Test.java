@@ -13,7 +13,7 @@ public class Test {
 
     public static void main(String[] args){
         List<File> fileList = new ArrayList<>();
-        System.out.println(getAllFile(new File("D:/nfs/media/"), ".*", fileList));
+        PPrint.pprint(getAllFile(new File("H:/Java视频/源代码教育Java面试题视频"), ".*", fileList));
     }
     //自己写的获取当前文件目录下的所有文件
     public static List<File> getAllFile(File file, String regex, List<File> fileList){
