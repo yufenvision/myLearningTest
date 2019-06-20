@@ -9,13 +9,70 @@ import java.text.SimpleDateFormat;
  * @Description: 目录的检查及创建
  */
 public class MakeDirectories {
-    public static void main(String[] args){
-        File file = new File("H:\\Java7");
+    private static void usage(){
+        System.err.println(
+          "Usage:MakeDirectories path1 ...\n" +
+          "Creates each path\n" +
+          "Usage:MakeDirectories -d path1 ...\n" +
+          "Deletes each path\n" +
+          "Usage:MakeDirectories -r path1 path2\n" +
+          "Renames form path1 to path2"
+        );
+        System.exit(1);
+    }
+    private static void fileData(File f){
+        System.out.println(
+                "Absolute path:" + f.getAbsolutePath() +
+                "\n Can read: " + f.canRead() +
+                "\n Can write: " + f.canWrite() +
+                "\n getName: " + f.getName() +
+                "\n getParent: " + f.getParent() +
+                "\n getPath: " + f.getPath() +
+                "\n length(byte): " + f.length() +
+                "\n lastModified: " + f.lastModified()
+        );
+        if(f.isFile())
+            System.out.println("这是一个文件");
+        else if(f.isDirectory())
+            System.out.println("这是一个目录");
+    }
 
-        System.out.println(file.getName());
-        System.out.println(file.getAbsolutePath());
-        System.out.println(file.getPath());
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(file.lastModified()));
+    public static void main(String[] args){
+        if(args.length < 1)usage();
+        if(args[0].equals("-r")){
+            if(args.length !=3) usage();
+            File
+                    old = new File(args[1]),
+                    rname = new File(args[2]);
+            old.renameTo(rname);
+            fileData(old);
+            fileData(rname);
+            return;//Exit main函数
+        }
+
+        int count = 0;
+        boolean del = false;
+        if(args[0].equals("-d")){
+            count++;
+            del = true;
+        }
+        count--;
+        while(++count < args.length){
+            File f = new File(args[count]);
+            if(f.exists()){
+                System.out.println(f + " exists存在");
+                if(del){
+                    System.out.println("deleting..." + f);
+                    f.delete();
+                }
+            }else{//不存在
+                if(!del){
+                    f.mkdirs();
+                    System.out.println("created 已创建" + f);
+                }
+            }
+            fileData(f);
+        }
 
     }
 

@@ -33,7 +33,7 @@ public final class Directory {
         public List<File> dirs = new ArrayList<>();
 
         @Override
-        public Iterator<File> iterator() {
+        public Iterator<File> iterator() {//实现了iterable接口后，它将产生文件，使你拥有在文件列表上的“默认迭代”,也就是说可以用foreach循环来遍历treeInfo
             return files.iterator();
         }
 
