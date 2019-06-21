@@ -11,7 +11,7 @@ import java.util.TreeSet;
  * @Description:
  */
 public class TextFile extends ArrayList<String> {
-    //Read a file as a single String;
+    //Read a file as a single String;读取一个文件为字符串
     public static String read(String filename){
         StringBuilder sb = new StringBuilder();
         try{
@@ -34,7 +34,7 @@ public class TextFile extends ArrayList<String> {
         }
         return sb.toString();
     }
-    //Write a single file in one method call:
+    //Write a single file in one method call:打印一个文件
     public static void write(String filename, String text){
         try {
             PrintWriter out = new PrintWriter(
@@ -49,15 +49,15 @@ public class TextFile extends ArrayList<String> {
             throw new RuntimeException(e);
         }
     }
-    //Read a file, split by any regular expression:
+    //Read a file, split by any regular expression:读一个文件，根据正则，拆分为集合
     public TextFile(String filename, String splitter){
         super(Arrays.asList(read(filename).split(splitter)));
-        //Regular expression split() often leaves an empty
+        //Regular expression split() often leaves an empty用了正则将字符串转为集合，常常会留下空白
         //String at the first position:
         if(get(0).equals(""))remove(0);
 
     }
-    //Normally read by lines:
+    //Normally read by lines:正常的一行行读取
     public TextFile(String fileName){
         this(fileName, "\n");
     }
@@ -76,7 +76,7 @@ public class TextFile extends ArrayList<String> {
             throw new RuntimeException(e);
         }
     }
-    //Simple test:
+    //Simple test:测试
     public static void main(String[] args){
         String file = read("D:/eclipse_neon/eclipse/workspace/myTest/src/io/thinkinjava/filetool/TextFile.java");
         write("test.txt", file);
