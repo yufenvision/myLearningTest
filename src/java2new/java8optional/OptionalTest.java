@@ -6,6 +6,12 @@ import java.util.Optional;
  * @Author: dyf
  * @Date: 2019/5/19 15:27
  * @Description:
+ * orElse:如果值为空则返回指定的值
+ * orElseGet:如果值为空则调用指定的方法返回
+ * orElseThrow:如果值为空则直接抛出异常
+ *
+ *
+ *
  */
 public class OptionalTest {
 
