@@ -1,5 +1,10 @@
 package thinkingInJava.innerclass.iterator;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @Author: dyf
  * @Date: 2019/6/27 19:25
@@ -30,6 +35,12 @@ public class Sequence {
         public void next() {
             if(i < items.length)i++;
         }
+        //内部类的灵活性，如果Sequence.java不使用内部类，就必须声明“Sequence是一个Selector”,对于某个特定的Sequence只能有一个Seletor。然而使用内部类很容易就能拥有另一个方法reverseSelector(),用它来生成一个反方向遍历序列的Selector
+        public void reverseSelector(){
+            List list = Arrays.asList(items);
+            Collections.reverse(list);
+            items = list.toArray();
+        }
     }
     public Selector selector(){
         return new SequenceSelector();
@@ -41,7 +52,11 @@ public class Sequence {
         for (int i = 0; i< 10 ; i++){
             sequence.add(Integer.toString(i));
         }
-        Selector selector = sequence.selector();
+
+        SequenceSelector selector1 = (SequenceSelector) sequence.selector();//灵活转换？
+        selector1.reverseSelector();
+
+        Selector selector = selector1;
         while(!selector.end()){
             System.out.print(selector.current() + " ");
             selector.next();

@@ -12,5 +12,14 @@ public class MainTest {
         System.out.println(manager.getResult());
         HR hr = new HR(employee);//人事也叫员工填表格
         System.out.println(hr.getHrResult());
+
+        //匿名内部类
+        AnonymousSenior anonymousSenior = new AnonymousSenior(employee, new CallBack() {
+            @Override
+            public void backResult(String result) {
+                System.out.println(result);
+            }
+        });
+
     }
 }
