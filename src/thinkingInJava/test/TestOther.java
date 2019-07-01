@@ -14,8 +14,5 @@ public class TestOther {
 		System.out.println(t1.i);
 		System.out.println(t2.i);
 
-		System.out.println(TestOther.class.getResource(""));
-		System.out.println(Thread.currentThread().getContextClassLoader().getResource(""));
-		System.out.println(System.getProperty("user.dir"));
 	}
 }

@@ -6,6 +6,5 @@ package thinkingInJava.innerclass.callbacksample;
  * @Description: 回调接口
  */
 public interface CallBack {
-
     void backResult(String result);//回调方法
 }

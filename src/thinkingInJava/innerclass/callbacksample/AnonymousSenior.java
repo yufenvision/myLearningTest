@@ -18,4 +18,7 @@ public class AnonymousSenior {
         return result;
     }
 
+    public void setResult(String result) {
+        this.result = result;
+    }
 }
