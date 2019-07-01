@@ -9,9 +9,10 @@ import java.util.Random;
  */
 public class Employee {
     public void doSomething(CallBack callBack, String task){
-        //上级通过dosomething方法让员工做什么
+        //上级通过dosomething方法让员工做什么task
         System.out.println(task);
-
-        callBack.backResult("员工用时" + new Random().nextInt(50) + " 秒，完成了这件事");
+        //员工做这件事耗时...
+        int time = new Random().nextInt(50);
+        callBack.backResult("员工用时" + time + " 秒，完成了这件事");
     }
 }
