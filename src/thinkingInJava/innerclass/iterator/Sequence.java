@@ -52,11 +52,8 @@ public class Sequence {
         for (int i = 0; i< 10 ; i++){
             sequence.add(Integer.toString(i));
         }
-
-        SequenceSelector selector1 = (SequenceSelector) sequence.selector();//灵活转换？
-        selector1.reverseSelector();
-
-        Selector selector = selector1;
+        Selector selector = sequence.selector();
+        ((SequenceSelector) selector).reverseSelector();//灵活转换？
         while(!selector.end()){
             System.out.print(selector.current() + " ");
             selector.next();

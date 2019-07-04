@@ -1,4 +1,4 @@
-package thinkingInJava.interfacetest.strategy;
+package thinkingInJava.interfacetest.suit_interface;
 
 import java.io.IOException;
 import java.nio.CharBuffer;
