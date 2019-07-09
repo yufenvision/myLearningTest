@@ -25,7 +25,7 @@ public class MethodReferences {
     }
     public static void main(String[] args){
         Describe d = new Describe();
-        Callable c = d :: show;//[6]我们将 Describe 对象的方法引用赋值给 Callable ，它没有 show() 方法，而是 call() 方法。 但是，Java 似乎接受用这个看似奇怪的赋值，因为方法引用符合 Callable 的 call() 方法的签名。
+        Callable c = d::show;//[6]我们将 Describe 对象的方法引用赋值给 Callable ，它没有 show() 方法，而是 call() 方法。 但是，Java 似乎接受用这个看似奇怪的赋值，因为方法引用符合 Callable 的 call() 方法的签名。
         c.call("call()");//我们现在可以通过调用 call() 来调用 show()，因为 Java 将 call() 映射到 show()。
 
         c = MethodReferences::hello; // [8]这是一个静态方法引用。

@@ -1,4 +1,4 @@
-package thinkingInJava.function_programming.lambda_expression;
+package thinkingInJava.function_programming.lambda_expression.recursion;
 
 /**
  * @Author: dyf
