@@ -3,7 +3,7 @@ package thinkingInJava.function_programming.lambda_expression.method_reference;
 /**
  * @Author: dyf
  * @Date: 2019/7/8 21:54
- * @Description:
+ * @Description: Java 8 方法引用没有历史包袱。方法引用组成：类名或对象名，后面跟 :: ，然后跟方法名称。
  */
 public class MethodReferences {
     static void hello(String name){//hello() 也符合 call() 的签名。
