@@ -1,6 +1,10 @@
 package thinkingInJava.function_programming.lambda_expression.method_reference.unbound_constructor_reference;
 
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 /**
  * @Author: dyf
  * @Date: 2019/7/9 22:44
@@ -33,5 +37,15 @@ public class MainTest {
         threeargs.call3(athis, 11, 3.14, "Three");
         fourargs.call4(athis, 11, 3.14, "Four", 'Z');
 
+        Supplier<Dog> bark = Dog::new;
+        bark.get().bark("生产者函数");
+        Consumer<String> bark1 = new Dog()::bark;
+        bark1.accept("消费者函数");
+        Function<String, Dog> f = s -> new Dog(s);
+        f.apply("function").bark("function构造.....");
+
+        Consumer c1 = System.out::println;
+        Consumer c2 = s -> System.out.println(s + " from c2");
+        c1.andThen(c2).accept("入参");
     }
 }
