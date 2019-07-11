@@ -21,5 +21,6 @@ public class RunnableMethodReference {
         }).start();
 
         new Thread(Go::go).start();
+
     }
 }
