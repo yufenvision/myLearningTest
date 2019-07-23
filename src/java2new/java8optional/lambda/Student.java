@@ -8,10 +8,10 @@ package java2new.java8optional.lambda;
 
 public class Student {
     private String name;
-    private int age;
-    private int height;
+    private Integer age;
+    private Integer height;
 
-    public Student(String name, int age, int height) {
+    public Student(String name, Integer age, Integer height) {
         this.name = name;
         this.age = age;
         this.height = height;
@@ -28,19 +28,19 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 

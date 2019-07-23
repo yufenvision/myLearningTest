@@ -48,8 +48,11 @@ public class TestCase {
             System.out.println(min.get());
 
         //6、sourted,排序
+        Comparator<Student> comparator = (s1, s2) -> s2.getHeight().compareTo(s1.getHeight());
         List<Student> sortedStudents = list.stream().sorted(Comparator.comparing(Student::getHeight).reversed()).collect(Collectors.toList());
+        List<Student> sortedStudents2 = list.stream().sorted(comparator).collect(Collectors.toList());
         System.out.println(sortedStudents);
+        System.out.println(sortedStudents2);
 
         //7、count，统计功能，一般都是结合filter使用，因为先筛选出我们需要的再统计即可。及早求值
         long count = list.stream().filter( s -> s.getAge() < 45).count();
