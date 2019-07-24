@@ -1,11 +1,13 @@
 package object2oriented.objectclone;
 
+import java.io.Serializable;
+
 /**
  * @Author: dyf
  * @Date: 2019/7/24 22:07
  * @Description:
  */
-public class Teacher implements Cloneable{
+public class Teacher implements Cloneable,Serializable{
 
     private String name;
     private Integer age;

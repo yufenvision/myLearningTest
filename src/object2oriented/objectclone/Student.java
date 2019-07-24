@@ -1,5 +1,6 @@
 package object2oriented.objectclone;
 
+import java.io.*;
 import java.util.function.Function;
 
 /**
@@ -7,7 +8,7 @@ import java.util.function.Function;
  * @Date: 2019/7/24 21:43
  * @Description: 对象克隆
  */
-public class Student implements Cloneable{
+public class Student implements Cloneable, Serializable{
     private String name;
     private Integer password;
     private Teacher teacher;
@@ -52,6 +53,22 @@ public class Student implements Cloneable{
         return s;
     }
 
+    /*
+    大家知道，Java可以把对象序列化写进一个流里面，反之也可以把对象从序列化流里面读取出来，但这一进一出，这个对象就不再是原来的对象了，就达到了克隆的要求。
+    通过把对象写进ByteArrayOutputStream里，再把它读取出来。注意这个过程中所有涉及的对象都必须实现Serializable接口，由于涉及IO操作，这种方式的效率会比前面的低。
+     */
+    public Student serializableClone() throws IOException, ClassNotFoundException {
+        Student clone;
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        ObjectOutputStream oo = new ObjectOutputStream(bo);
+        oo.writeObject(this);
+        ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray());
+        ObjectInputStream oi = new ObjectInputStream(bi);
+        clone = (Student) oi.readObject();
+
+        return clone;
+    }
 
 
     @Override
@@ -72,11 +89,12 @@ public class Student implements Cloneable{
 
     static Function<Object, String> getAdress = s -> s.getClass().getName() + Integer.toHexString(s.hashCode());//获取对象的地址值
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) throws CloneNotSupportedException, IOException, ClassNotFoundException {
         Teacher teacher = new Teacher("张老师本尊", 40);
         Student student = new Student("小明本尊", 16, teacher);
-//        Student clone = (Student) student.ShallowClone();
-        Student clone = (Student) student.deepClone();
+        Student clone = (Student) student.ShallowClone();
+//        Student clone = (Student) student.deepClone();
+//        Student clone = (Student) student.serializableClone();
 
         System.out.println(clone == student);
         System.out.println(clone.equals(student));
