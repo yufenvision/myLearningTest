@@ -27,7 +27,7 @@ public class Recursive {
 
     public static void main(String[] args){
         Recursive recursive = new Recursive();
-        System.out.println(recursive.getResultLambda(3));
-        System.out.println(recursive.getResultNormal(3));
+        for(int i = 0; i <= 10; i++)
+            System.out.println(recursive.getResultLambda(i));
     }
 }

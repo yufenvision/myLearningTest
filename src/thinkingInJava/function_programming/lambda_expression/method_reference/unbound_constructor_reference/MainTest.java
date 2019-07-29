@@ -37,6 +37,8 @@ public class MainTest {
         threeargs.call3(athis, 11, 3.14, "Three");
         fourargs.call4(athis, 11, 3.14, "Four", 'Z');
 
+
+        //如果用Java8提供的接口函数来写：
         Supplier<Dog> bark = Dog::new;
         bark.get().bark("生产者函数");
         Consumer<String> bark1 = new Dog()::bark;

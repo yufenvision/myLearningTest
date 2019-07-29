@@ -1,5 +1,7 @@
 package java2new.java8optional;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -28,6 +30,11 @@ public class OptionalTest {
         System.out.println(Optional.ofNullable(u)
                 .map(v -> v.getName())
                 .orElse("这个User对象为空"));
+
+        List<User> users = Arrays.asList(u);
+        users.add(new User("哈哈",12));
+        users.add(new User("xx",11));
+        System.out.println(users);
     }
 
 }
