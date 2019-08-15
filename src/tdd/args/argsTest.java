@@ -2,6 +2,7 @@ package tdd.args;
 
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,43 +48,36 @@ public class argsTest {
         return new Args().parse(needParseStr);
     }
 
+    public Map getMapResultByKey(String key, String needParseStr){
+        for (Map map : getParseResultList(needParseStr)) {
+            if(map.get(key) != null)
+               return map;
+        }
+        return null;
+    }
+
+
     @Test
     public void in_l_out_boolen_true(){
-        Map<String, Boolean> v = null;
-        for (Map map : getParseResultList(parseStr[0])) {
-            if(map.get("l") != null)
-                v = map;
-        }
+        Map<String, Boolean> v = getMapResultByKey("l", parseStr[0]);
         assertEquals(true, v.get("l"));
     }
 
     @Test
     public void in_p_out_String_8080(){
-        Map<String, Integer> v = null;
-        for (Map map : getParseResultList(parseStr[0])) {
-            if(map.get("p") != null)
-                v = map;
-        }
+        Map<String, Integer> v = getMapResultByKey("p", parseStr[0]);
         assertEquals(new Integer(8080), v.get("p"));
     }
 
     @Test
     public void in_d_out_String(){
-        Map<String, String> v = null;
-        for (Map map : getParseResultList(parseStr[0])) {
-            if(map.get("d") != null)
-                v = map;
-        }
+        Map<String, String> v = getMapResultByKey("d", parseStr[0]);
         assertEquals("/usr/logs", v.get("d"));
     }
 
     @Test
     public void in_g_out_listString(){
-        Map<String, List<String>> v = null;
-        for (Map map : getParseResultList(parseStr[1])) {
-            if(map.get("g") != null)
-                v = map;
-        }
+        Map<String, List<String>> v = getMapResultByKey("g", parseStr[1]);
         assertEquals(true, v.get("g") instanceof List);
         assertEquals("this", v.get("g").get(0));
         assertEquals("is", v.get("g").get(1));
@@ -94,11 +88,7 @@ public class argsTest {
 
     @Test
     public void in_g_out_listInteger(){
-        Map<String, List<Integer>> v = null;
-        for (Map map : getParseResultList(parseStr[1])) {
-            if(map.get("D") != null)
-                v = map;
-        }
+        Map<String, List<Integer>> v = getMapResultByKey("D", parseStr[1]);
         assertEquals(true, v.get("D") instanceof List);
         assertEquals(Integer.valueOf(1), v.get("D").get(0));
         assertEquals(Integer.valueOf(2), v.get("D").get(1));

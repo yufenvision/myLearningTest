@@ -36,13 +36,33 @@ public class Args {
     //map来装结果集，key为识别参数，value为对应的类型字段
 
     public List<Map> parse(String needParseStr) {
-        String[] splitStr = needParseStr.replaceAll(" ","").split("-");
         List<Map> parseResult = new ArrayList<>();
-        for (String s : splitStr) {
+        for (String s : splitNeedParseStr(needParseStr)) {
             if("".equals(s))continue;
             parseResult.add(getMapResultByString(s));
         }
         return parseResult;
+    }
+
+    public List<String> splitNeedParseStr(String needParseStr){
+        String trimStr = needParseStr.replaceAll(" ","");
+        List<String> parsedStr = new ArrayList<>();
+        int positionD = trimStr.indexOf("-D");
+        if(trimStr.indexOf("-D") > 0){
+            String strD = trimStr.substring(positionD + 1,trimStr.length());
+            String newNeedParseStr = trimStr.substring(0, positionD);
+            String[] splitStr = newNeedParseStr.split("-");
+            for (String s : splitStr) {
+                parsedStr.add(s);
+            }
+            parsedStr.add(strD);
+            return parsedStr;
+        }
+        String[] splitStr = trimStr.split("-");
+        for (String s : splitStr) {
+            parsedStr.add(s);
+        }
+        return parsedStr;
     }
 
     public Map getMapResultByString(String needParseStr){
@@ -82,8 +102,12 @@ public class Args {
         }
     }
     public static void main(String[] args){
-        System.out.println("l".substring(0,1));
-        System.out.println("l".substring(1));
-        String[] splitStr = "-l -p 8080 -d /usr/logs".replaceAll(" ", "").split("-");
+//        System.out.println("l".substring(0,1));
+//        System.out.println("l".substring(1));
+//        String[] splitStr = "-g this,is,a,list -D 1,2,-3,5".replaceAll(" ", "").split("-[a-zA-Z]{1}");
+//        for (String s : splitStr) {
+//            System.out.println(s);
+//        }
+        System.out.println("-D".indexOf("-D"));
     }
 }
