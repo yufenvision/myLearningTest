@@ -1,6 +1,7 @@
 package tdd.args;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Author: dyf
@@ -108,6 +109,7 @@ public class Args {
 //        for (String s : splitStr) {
 //            System.out.println(s);
 //        }
+        Arrays.asList("xx,11".split(",")).stream().map(v -> v.concat("加上的")).collect(Collectors.toList()).forEach(v -> System.out.println(v));
         System.out.println("-D".indexOf("-D"));
     }
 }
