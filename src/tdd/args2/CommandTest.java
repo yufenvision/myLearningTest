@@ -10,9 +10,6 @@ import static org.junit.Assert.assertEquals;
  * @Description: 解析命令行
  */
 public class CommandTest {
-
-
-
     @Test
     public void test_getStringValueByCommand(){
         Command command = new Command("-l -p 8080 -d /usr/logs -g this,is,a,list -D 1,2,-3,5");
