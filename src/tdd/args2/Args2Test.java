@@ -51,7 +51,7 @@ public class Args2Test {
 
     @Test
     public void test(){
-        Args2 args2 = new Args2("l:bool,p:int,d:str,g:listStr,D:listInt", "-l -p 8080 -d /usr/logs -g this,is,a,list -D 1,2,-3,5");
+        Args2 args2 = new Args2("l:bool,p:int,d:str,g:listStr,D:listInt", "-l -p 8080 -d /usr/logs -D 1,2,-3,5 -g this,is,a,list");
         assertEquals(true, args2.parse("l"));
         assertEquals(new Integer(8080), args2.parse("p"));
         assertEquals("/usr/logs", args2.parse("d"));
