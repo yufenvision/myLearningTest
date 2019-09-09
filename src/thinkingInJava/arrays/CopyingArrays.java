@@ -71,7 +71,7 @@ public class CopyingArrays {
         System.arraycopy(copys1, 0, copys2,0, copys1.length);
         System.out.println("copys2 = " + Arrays.toString(copys2));
 //        copys1[0] = new ForCopy("修改", 00, new CopyObject(99999));//这里只是改变了copys1[0]变量的地址指向，之前指向的对象仍然被copys2引用
-        copys1[0].setName("修改了！！！");//堆中的对象值改变，影响引用了它的copys2的值
+        copys1[0].setName("修改了！！！");//堆中的对象属性改变，影响引用了它的copys2的值
         copys1[0].setAge(11);
         copys1[0].setCopyObject(new CopyObject(999999));
         System.out.println("copys1 = " + Arrays.toString(copys1));
