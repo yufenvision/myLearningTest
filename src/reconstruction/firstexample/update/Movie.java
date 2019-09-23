@@ -12,10 +12,12 @@ public class Movie {
 
     private String title;
     private int priceCode;
+    private Price price;
 
-    public Movie(String title, int priceCode) {
+
+    public Movie(String title, int arg) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(arg);
     }
 
     public String getTitle() {
@@ -26,33 +28,50 @@ public class Movie {
         return priceCode;
     }
 
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
+//    public void setPriceCode(int priceCode) {
+//        this.priceCode = priceCode;
+//    }
+    public void setPriceCode(int arg) {
+        switch (arg){
+            case REGULAR:
+                price = new RegularPrice();
+                break;
+            case CHILDRENS:
+                price = new ChildrensPrice();
+                break;
+            case NEW_REALEASE:
+                price = new NewReleasePrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorrect Price Code");
+        }
     }
 
+//    public double getCharge(int daysRented){
+//        double thisAmount = 0;
+//        switch (priceCode){
+//            case reconstruction.firstexample.old.Movie.REGULAR:
+//                thisAmount += 2;
+//                if(daysRented > 2)
+//                    thisAmount += (daysRented - 2) * 1.5;
+//                break;
+//            case reconstruction.firstexample.old.Movie.NEW_REALEASE:
+//                thisAmount += daysRented * 3;
+//                break;
+//            case reconstruction.firstexample.old.Movie.CHILDRENS:
+//                thisAmount += 1.5;
+//                if(daysRented > 3)
+//                    thisAmount += (daysRented - 3) * 1.5;
+//                break;
+//        }
+//        return thisAmount;
+//    }
     public double getCharge(int daysRented){
-        double thisAmount = 0;
-        switch (priceCode){
-            case reconstruction.firstexample.old.Movie.REGULAR:
-                thisAmount += 2;
-                if(daysRented > 2)
-                    thisAmount += (daysRented - 2) * 1.5;
-                break;
-            case reconstruction.firstexample.old.Movie.NEW_REALEASE:
-                thisAmount += daysRented * 3;
-                break;
-            case reconstruction.firstexample.old.Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if(daysRented > 3)
-                    thisAmount += (daysRented - 3) * 1.5;
-                break;
-        }
-        return thisAmount;
+        return price.getCharge(daysRented);
     }
+
 
     public int getFrequentRenterPoints(int daysRented) {
-        if((priceCode == Movie.NEW_REALEASE) && daysRented > 1)
-            return 2;
-        return 1;
+        return price.getFrequentRenterPoints(daysRented);
     }
 }
