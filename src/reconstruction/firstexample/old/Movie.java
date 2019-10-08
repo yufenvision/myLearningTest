@@ -3,7 +3,7 @@ package reconstruction.firstexample.old;
 /**
  * @Author: dyf
  * @Date: 2019/9/19 16:15
- * @Description:
+ * @Description: 电影类
  */
 public class Movie {
     public static final int CHILDRENS = 2;
