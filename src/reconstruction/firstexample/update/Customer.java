@@ -74,7 +74,7 @@ public class Customer {
         return result;
     }
 
-    private int getTotalFrequentRenterPoints(){
+    public int getTotalFrequentRenterPoints(){
         int result = 0;
         Enumeration rentalss = rentals.elements();
         while(rentalss.hasMoreElements()){
