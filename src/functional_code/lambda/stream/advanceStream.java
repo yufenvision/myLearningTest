@@ -1,6 +1,6 @@
-package java2new.java8optional.lambda.stream;
+package functional_code.lambda.stream;
 
-import java2new.java8optional.lambda.Student;
+import functional_code.lambda.Student;
 
 import java.util.ArrayList;
 import java.util.List;

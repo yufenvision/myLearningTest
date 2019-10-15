@@ -1,4 +1,4 @@
-package java2new.java8optional;
+package functional_code;
 
 import java.util.Arrays;
 import java.util.List;

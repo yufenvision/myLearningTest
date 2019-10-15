@@ -1,4 +1,4 @@
-package java2new.java8optional.lambda;
+package functional_code.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
