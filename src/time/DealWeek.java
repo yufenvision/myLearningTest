@@ -4,60 +4,112 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.function.Function;
 
 /**
 * @author 作者 dyf:
 * @version 创建时间：2019年3月20日 下午7:31:58
 */
 public class DealWeek {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		String date = "2019-01-01";
-		
-		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd"); 
+		Calendar c = getCalendarByDateStr(date);
+		System.out.println(c.get(Calendar.WEEK_OF_YEAR));
+		System.out.println(getStartAndEndDayByWeekNo(Integer.parseInt(date.substring(0, 4)), c.get(Calendar.WEEK_OF_YEAR))[0]);
+		System.out.println(getStartAndEndDayByWeekNo(Integer.parseInt(date.substring(0, 4)), c.get(Calendar.WEEK_OF_YEAR))[1]);
+
+		System.out.println(getStartAndEndDayByDate(date)[0]);
+		System.out.println(getStartAndEndDayByDate(date)[1]);
+
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd"); //设置时间格式
+		Calendar cal = Calendar.getInstance();
+		Date time= sdf.parse(date);
+		cal.setTime(time);
+		System.out.println("要计算日期为:"+sdf.format(cal.getTime())); //输出要计算日期
+
+		//判断要计算的日期是否是周日，如果是，则减一天计算周六的，否则会出问题，计算到下一周去了
+		int dayWeek = cal.get(Calendar.DAY_OF_WEEK);//获得当前日期是一个星期的第几天
+		if(1 == dayWeek) {
+			cal.add(Calendar.DAY_OF_MONTH, -1);
+		}
+
+		cal.setFirstDayOfWeek(Calendar.MONDAY);//设置一个星期的第一天，按中国的习惯一个星期的第一天是星期一
+
+		int day = cal.get(Calendar.DAY_OF_WEEK);//获得当前日期是一个星期的第几天
+		cal.add(Calendar.DATE, cal.getFirstDayOfWeek()-day);//根据日历的规则，给当前日期减去星期几与一个星期第一天的差值
+		System.out.println("所在周星期一的日期："+sdf.format(cal.getTime()));
+		System.out.println(cal.getFirstDayOfWeek()+"-"+day+"+6="+(cal.getFirstDayOfWeek()-day+6));
+
+		cal.add(Calendar.DATE, 6);
+		System.out.println("所在周星期日的日期："+sdf.format(cal.getTime()));
+	}
+
+	static Function<Integer, String> add0 = (i -> i < 10 ? "0" + i : String.valueOf(i));//补0
+
+	public static String[] getStartAndEndDayByWeekNo(int year,int weekNo){
+		String[] dateZone = new String[2];
+		Calendar cStart =Calendar.getInstance();
+		int day_of_week = cStart.get(Calendar. DAY_OF_WEEK) - 1;
+		if (day_of_week == 0 ) {
+			day_of_week = 7 ;
+		}
+		cStart.add(Calendar.DATE , -day_of_week + 1 );
+
+		dateZone[0] = cStart.get(Calendar.YEAR) +"-"+ add0.apply(cStart.get(Calendar.MONTH) + 1) + "-" + add0.apply(cStart.get(Calendar.DAY_OF_MONTH));
+		if(cStart.get(Calendar.YEAR) < year)dateZone[0] = year + "-01-01";
+
+		Calendar cEnd = Calendar.getInstance();
+		int day_of_week2 = cEnd.get(Calendar. DAY_OF_WEEK) - 1;
+		if (day_of_week2 == 0 ) {
+			day_of_week2 = 7 ;
+		}
+		cEnd.add(Calendar.DATE , -day_of_week2 + 7 );
+		dateZone[1] = cEnd.get(Calendar.YEAR) +"-"+ add0.apply(cEnd.get(Calendar.MONTH) + 1) + "-" + add0.apply(cEnd.get(Calendar.DAY_OF_MONTH));
+		if(cEnd.get(Calendar.YEAR) > year)dateZone[1] = year + "-12-31";
+
+		return dateZone;
+	}
+
+    //根据日期获取该天所在周的开始与结束日期(周跨年周，只计算本年内那部分天数)
+	public static String[] getStartAndEndDayByDate(String yyyyMMdd){
+		String[] dateZone = new String[3];
+		Calendar cal = getCalendarByDateStr(yyyyMMdd);
+		int weekNo = cal.get(Calendar.WEEK_OF_YEAR);
+		int year = Integer.parseInt(yyyyMMdd.substring(0, 4));
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+		cal.set(Calendar.WEEK_OF_YEAR, weekNo);
+
+		dateZone[0] = cal.get(Calendar.YEAR) +"-"+ add0.apply(cal.get(Calendar.MONTH) + 1) + "-" + add0.apply(cal.get(Calendar.DAY_OF_MONTH));
+		if(cal.get(Calendar.YEAR) < year)dateZone[0] = year + "-01-01";
+
+		cal.add(Calendar.DATE,cal.get(cal.DATE) + 6);
+
+		dateZone[1] = cal.get(Calendar.YEAR) +"-"+ add0.apply(cal.get(Calendar.MONTH) + 1) + "-" + add0.apply(cal.get(Calendar.DAY_OF_MONTH));
+		if(cal.get(Calendar.YEAR) > year)dateZone[1] = year + "-12-31";
+		dateZone[2] = String.valueOf(weekNo);
+		return dateZone;
+
+	}
+
+	private static Calendar getCalendarByDateStr(String yyyyMMdd){
+		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = null;
 		try {
-			d = sm.parse(date);
+			d = sm.parse(yyyyMMdd);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		System.out.println(d);
 		Calendar c = Calendar.getInstance();
 		c.setFirstDayOfWeek(Calendar.MONDAY);
 		c.setTime(d);
-		System.out.println(c.get(Calendar.WEEK_OF_YEAR));
-		
-		System.out.println(getStartAndEndDayByWeekNo(2019,1)[0]);
-		System.out.println(getStartAndEndDayByWeekNo(2019,1)[1]);
-		
-		System.out.println(Integer.parseInt(date.substring(0, 4)));
+		return c;
 	}
-	
-	//根据年和第几周，来获取该周的开始日期和结束日期
-	public static String[] getStartAndEndDayByWeekNo(int year,int weekNo){
-		String[] dateZone = new String[2];
-		Calendar cal =Calendar.getInstance();
-        cal.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);      
-        cal.set(Calendar.YEAR, year);
-        cal.set(Calendar.WEEK_OF_YEAR, weekNo);
-        
-        int sYear = cal.get(Calendar.YEAR);
-        int sMonth = cal.get(Calendar.MONTH) + 1;
-        int sDay = cal.get(Calendar.DAY_OF_MONTH);
-        dateZone[0] = sYear +"-"+(sMonth < 10 ? "0" + sMonth : sMonth)+"-"+ (sDay < 10 ? "0" + sDay : sDay);
-        if(sYear < year)dateZone[0] = year + "-01-01";
-        
-        cal.add(Calendar.DAY_OF_WEEK,6);
-        
-        int eYear = cal.get(Calendar.YEAR);
-        int eMonth = cal.get(Calendar.MONTH) + 1;
-        int eDay = cal.get(Calendar.DAY_OF_MONTH);
-        
-        dateZone[1] = eYear +"-"+(eMonth < 10 ? "0" + eMonth : eMonth)+"-"+ (eDay < 10 ? "0" + eDay : eDay);
-        if(eYear > year)dateZone[1] = year + "-12-31";
-        
-        return dateZone;    
-    }
-	
-	
+
+	private static Calendar getCalendarByDateStr(Date date){
+		Calendar c = Calendar.getInstance();
+		c.setFirstDayOfWeek(Calendar.MONDAY);
+		c.setTime(date);
+		return c;
+	}
 }
