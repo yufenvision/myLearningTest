@@ -56,7 +56,6 @@ public class DealWeek {
 		dateZone[1] = cal.get(Calendar.YEAR) +"-"+ add0.apply(cal.get(Calendar.MONTH) + 1) + "-" + add0.apply(cal.get(Calendar.DAY_OF_MONTH));
 		if(cal.get(Calendar.YEAR) > year)dateZone[1] = year + "-12-31";
 		return dateZone;
-
 	}
 
 	private static Calendar getCalendarByDateStr(String yyyyMMdd) throws ParseException {
