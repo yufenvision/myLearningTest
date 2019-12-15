@@ -9,9 +9,9 @@ public class Rental {
     private Movie movie;
     private int daysRented;
 
-    public Rental(Movie _movie, int _daysRented) {
-        this.movie = _movie;
-        this.daysRented = _daysRented;
+    public Rental(Movie movie, int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
     public Movie getMovie() {
