@@ -1,4 +1,4 @@
-package designmode.strategy.behavior;
+package designmode.strategy.duck.behavior;
 
 /**
  * @Author: dyf

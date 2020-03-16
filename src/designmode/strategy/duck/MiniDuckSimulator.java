@@ -1,9 +1,9 @@
-package designmode.strategy;
+package designmode.strategy.duck;
 
-import designmode.strategy.behavior.FlyRocketPowered;
-import designmode.strategy.duckentity.Duck;
-import designmode.strategy.duckentity.MallardDuck;
-import designmode.strategy.duckentity.ModelDuck;
+import designmode.strategy.duck.behavior.FlyRocketPowered;
+import designmode.strategy.duck.duckentity.Duck;
+import designmode.strategy.duck.duckentity.MallardDuck;
+import designmode.strategy.duck.duckentity.ModelDuck;
 
 /**
  * @Author: dyf
