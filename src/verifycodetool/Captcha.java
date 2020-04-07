@@ -1,4 +1,6 @@
-package com.zyqt.hztServer.util.verifycodetool;
+package verifycodetool;
+
+import verifycodetool.Randoms;
 
 import java.awt.Color;
 import java.awt.Font;

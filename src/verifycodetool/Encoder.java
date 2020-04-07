@@ -1,4 +1,4 @@
-package com.zyqt.hztServer.util.verifycodetool;
+package verifycodetool;
 import java.io.IOException;
 import java.io.OutputStream;
 
