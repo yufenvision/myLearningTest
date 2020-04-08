@@ -4,6 +4,7 @@ package designmode.observer;
  * @Author: dyf
  * @Date: 2019/5/29 22:29
  * @Description:
+ * 具体观察者
  */
 public class CurrentConditionDisplay implements Observer,DisplayElement {
     private float temperature;
