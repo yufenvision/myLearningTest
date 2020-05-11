@@ -78,10 +78,10 @@ public class Lambda {
 		System.out.println(Arrays.toString(players));
 		
 	}
-	
+
 	
 	public static void lambdaFilter(){
-		List<Person> javaProgrammers = new ArrayList<Person>() {  
+		List<Person> javaProgrammers = new ArrayList<Person>() {
 		  {  
 		    add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 43, 2000));  
 		    add(new Person("Tamsen", "Brittany", "Java programmer", "female", 23, 1500));  
