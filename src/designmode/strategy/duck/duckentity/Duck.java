@@ -1,7 +1,7 @@
-package designmode.strategy.duckentity;
+package designmode.strategy.duck.duckentity;
 
-import designmode.strategy.behavior.FlyBehavior;
-import designmode.strategy.behavior.QuackBehavior;
+import designmode.strategy.duck.behavior.FlyBehavior;
+import designmode.strategy.duck.behavior.QuackBehavior;
 
 /**
  * @Author: dyf
