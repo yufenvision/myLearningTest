@@ -5,13 +5,13 @@ package designmode.decoration.man;
  * @Date: 2019/4/26 17:05
  * @Description:
  */
-public class MoneyMan extends SuperMan {
-    public MoneyMan(IMan iMan) {
-        super(iMan);
+public class MoneyMan extends DecoratePerson {
+    public MoneyMan(Person person) {
+        super(person);
     }
 
     @Override
     public String say() {
-        return iMan.say() + "我还很会赚钱";
+        return person.say() + "我很会赚钱 ";
     }
 }

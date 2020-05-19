@@ -5,10 +5,10 @@ package designmode.decoration.man;
  * @Date: 2019/4/26 16:29
  * @Description: 具体的男人
  */
-public class Man implements IMan{
+public class Man implements Person {
 
     @Override
     public String say() {
-        return "男人说话:";
+        return "男人说：";
     }
 }

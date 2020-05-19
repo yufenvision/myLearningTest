@@ -8,14 +8,15 @@ package designmode.decoration.man;
 public class ManTest {
 
     public static void main(String[] args){
-        IMan man = new Man();
-        IMan man1 = new SuperMan(man);
+        Person man = new Man();
+        Person man1 = new DecoratePerson(man);
         System.out.println(man1.say());
         //可以通过这种方式，无限增强
-        IMan man2 = new HouseMan(man1);
+        Person man2 = new HouseMan(man1);
         System.out.println(man2.say());
-        IMan man3 = new MoneyMan(man2);
-        System.out.println(man3.say());
 
+        Person man3 = new MoneyMan(man2);
+        System.out.println(man3.say());
     }
+
 }

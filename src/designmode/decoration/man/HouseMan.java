@@ -5,13 +5,13 @@ package designmode.decoration.man;
  * @Date: 2019/4/26 16:42
  * @Description: 居家的男人
  */
-public class HouseMan extends SuperMan{
-    public HouseMan(IMan iMan) {
-        super(iMan);
+public class HouseMan extends DecoratePerson {
+    public HouseMan(Person person) {
+        super(person);
     }
 
     @Override
     public String say() {
-        return iMan.say() + "我还会做家务";
+        return person.say() + "我很会做家务 ";
     }
 }
