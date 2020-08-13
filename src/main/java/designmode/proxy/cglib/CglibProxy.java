@@ -29,6 +29,6 @@ public class CglibProxy implements MethodInterceptor {
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("cglib代理增强~~~");
         return methodProxy.invokeSuper(o, objects);
-//        return methodProxy.invoke(o, objects);
+//        return methodProxy.invoke(o, objects);//会导致栈内存溢出
     }
 }

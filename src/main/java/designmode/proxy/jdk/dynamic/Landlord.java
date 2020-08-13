@@ -11,5 +11,5 @@ public class Landlord implements IUserService{
 		else
 			System.out.println("房东说："+ word);
 	}
-	
+
 }

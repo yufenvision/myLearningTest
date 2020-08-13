@@ -102,7 +102,7 @@ public abstract class Captcha extends Randoms {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-		File f = new File("D:/img/");
+		File f = new File("E:/img/");
 		if(!f.exists())f.mkdirs();
 		OutputStream out = new FileOutputStream(f.getAbsolutePath() + File.separator + System.currentTimeMillis()+".gif");
 		Captcha captcha = new GifCaptcha(146,33,4);
