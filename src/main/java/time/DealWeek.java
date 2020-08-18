@@ -13,7 +13,7 @@ import java.util.function.Function;
 public class DealWeek {
 	public static void main(String[] args) throws ParseException {
 		
-		String date = "2020-12-31";
+		String date = "2020-01-05";
 		Calendar c = getCalendarByDateStr(date);
 		System.out.println(c.get(Calendar.WEEK_OF_YEAR));
 

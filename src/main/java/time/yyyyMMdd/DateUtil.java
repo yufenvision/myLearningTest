@@ -27,7 +27,7 @@ public class DateUtil {
      *   quater季 考核时间整年
      *   month月 考核时间整年
      *   ten旬 考核时间整年
-     *   week周  从周一所在日期算起，一周到最后一个
+     *   week周  从周一所在日期算起，一直到最后一个
      *
      * （1-季度/月/旬/周查询）
      * 输出：
@@ -47,26 +47,12 @@ public class DateUtil {
         if("quater".equals(type)){
             int month = cal.get(Calendar.MONTH);
             int quarter = month / 3 + 1;
-            int startMonth = 1;
-            if (quarter == 2){
-                startMonth = 4;
-            }else if(quarter == 3){
-                startMonth = 7;
-            }else if(quarter == 4){
-                startMonth = 10;
-            }
+            int startMonth = getStartMonthByQuater(quarter);
             cal.set(Calendar.MONTH,startMonth - 1);
             cal.set(Calendar.DAY_OF_MONTH,1);
             startEnd[0] = sm.format(cal.getTime());
 
-            int endMonth = 3;
-            if (quarter == 2){
-                endMonth = 6;
-            }else if(quarter == 3){
-                endMonth = 9;
-            }else if(quarter == 4){
-                endMonth = 12;
-            }
+            int endMonth = getEndMonthByQuater(quarter);
             cal.set(Calendar.MONTH,endMonth - 1);
             int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
             cal.set(Calendar.DAY_OF_MONTH,lastDay);
@@ -107,6 +93,9 @@ public class DateUtil {
             }
 
         }else if("week".equals(type)){
+            int yearNow = cal.get(Calendar.YEAR);
+            int dayWeek = cal.get(Calendar.DAY_OF_WEEK);//获得当前日期是一个星期的第几天
+            if(1 == dayWeek) cal.add(Calendar.DAY_OF_MONTH, -1);//星期天则往前推1天
             cal.setFirstDayOfWeek(Calendar.MONDAY);//设置一个星期的第一天，按中国的习惯一个星期的第一天是星期一
             int day = cal.get(Calendar.DAY_OF_WEEK);//获得当前日期是一个星期的第几天
             cal.add(Calendar.DATE, cal.getFirstDayOfWeek()-day);//根据日历的规则，给当前日期减去星期几与一个星期第一天的差值
@@ -114,13 +103,51 @@ public class DateUtil {
             cal.add(Calendar.DATE, 6);
             startEnd[1] = sm.format(cal.getTime());
 
+            //计算周数,一年从第一个周一算起
+            cal.setTime(sm.parse(startEnd[0]));
             int week = cal.get(Calendar.WEEK_OF_YEAR);
-            startEnd[2] = "第" + week + "周";//第几周？
+            week = cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && cal.get(Calendar.DAY_OF_YEAR) == 1 ? week : week - 1;
+            int yearS = cal.get(Calendar.YEAR);
+            if(yearS < yearNow){
+                cal.add(Calendar.DATE, -7);
+                startEnd[2] = yearS + "第" + cal.get(Calendar.WEEK_OF_YEAR) + "周";
+                return startEnd;
+            }
+
+            cal.setTime(sm.parse(startEnd[1]));
+            int yearE = cal.get(Calendar.YEAR);
+            if(yearE > yearNow){
+                cal.add(Calendar.DATE, -7);
+                startEnd[2] = yearNow + "第" + cal.get(Calendar.WEEK_OF_YEAR) + "周";
+                return startEnd;
+            }
+            startEnd[2] = yearNow + "第" + week + "周";//第几周？
         }
 
         return startEnd;
     }
 
+    private static Integer getStartMonthByQuater(Integer quarter){
+        if (quarter == 2){
+            return 4;
+        }else if(quarter == 3){
+            return 7;
+        }else if(quarter == 4){
+            return 10;
+        }
+        return 1;
+    }
+
+    private static Integer getEndMonthByQuater(Integer quarter){
+        if (quarter == 2){
+            return 6;
+        }else if(quarter == 3){
+            return 9;
+        }else if(quarter == 4){
+            return 12;
+        }
+        return 3;
+    }
 
     public static String[] getWeekStartEndForAllYear(String date) throws ParseException {
         String[] weekStartEnd = new String[2];
@@ -162,8 +189,11 @@ public class DateUtil {
     }
 
     public static void main(String[] args) throws ParseException {
-//        System.out.println(getWeekNumByDate("2020-07-15"));
+//        System.out.println(getWeekNumByDate("2020-01-05"));
 
-        System.out.println(Arrays.toString(getTimeSection("2020-07-15", "week")));
+        System.out.println(Arrays.toString(getTimeSection("2018-12-30", "week")));
+        System.out.println(Arrays.toString(getTimeSection("2020-12-31", "week")));
+//        System.out.println(Arrays.toString(getTimeSection("2018-12-31", "week")));
+//        System.out.println(Arrays.toString(getWeekStartEndForAllYear("2020-11-01")));
     }
 }
