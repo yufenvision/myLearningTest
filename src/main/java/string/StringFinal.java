@@ -16,12 +16,12 @@ public class StringFinal {
 		String e = a1+2;
 		String f = c+2;
 
-		System.out.println(a==d);
+		System.out.println(a==d);//true
 		System.out.println(a==aa);//两个都是字符串池中创建的
 		System.out.println(a==e);//false
 		System.out.println(a==f);//false
 		System.out.println(a.equals(e));//true
-		
+
 		int i =0;
 		int n = 5;
 		int[] arr = new int[n];

@@ -28,6 +28,7 @@ public class CountTime{
         IUserService jdkProxy = (IUserService) proxy1.getProxy();
 
         CountTime.getCostTime(jdkProxy);
+        System.out.println("============================================");
         CountTime.getCostTime(cglibProxy);
     }
 }

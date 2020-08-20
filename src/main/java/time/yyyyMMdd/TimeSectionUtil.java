@@ -12,7 +12,7 @@ import java.util.Date;
  * @Date: 2020/8/13 17:28
  * @Description:
  */
-public class DateUtil {
+public class TimeSectionUtil {
 
     /**
      * 时间获取工具类：
