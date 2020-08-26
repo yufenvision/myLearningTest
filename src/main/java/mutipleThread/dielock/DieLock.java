@@ -37,6 +37,6 @@ public class DieLock extends Thread{
 		d1.start();
 		d2.start();
 	}
-	
-	
+
+
 }
