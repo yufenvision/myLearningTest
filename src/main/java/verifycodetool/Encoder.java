@@ -35,7 +35,7 @@ public class Encoder
     //              Jim McKie              (decvax!mcvax!jim)
     //              Steve Davies           (decvax!vax135!petsd!peora!srd)
     //              Ken Turkowski          (decvax!decwrl!turtlevax!ken)
-    //              James A. Woods         (decvax!ihnp4!ames!jaw)
+    //              James Father. Woods         (decvax!ihnp4!ames!jaw)
     //              Joe Orost              (decvax!vax135!petsd!joe)
 
     int n_bits; // number of bits/code
@@ -75,7 +75,7 @@ public class Encoder
     //
     // Output the given code.
     // Inputs:
-    //      code:   A n_bits-bit integer.  If == -1, then EOF.  This assumes
+    //      code:   Father n_bits-bit integer.  If == -1, then EOF.  This assumes
     //              that n_bits =< wordsize - 1.
     // Outputs:
     //      Outputs code to the file.

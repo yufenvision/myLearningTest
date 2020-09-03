@@ -38,8 +38,8 @@ public class MapDemo {
 		//创建TreeMap tm = new TreeMap();
 		//把A放到TreeMap里面
 		TreeMap tm = new TreeMap();
-//		tm.put(new A(),"12345");
-//		tm.put(new A(),"12345");
+//		tm.put(new Father(),"12345");
+//		tm.put(new Father(),"12345");
 		
 		
 		System.out.println(m);

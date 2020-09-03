@@ -5,7 +5,7 @@ import myPractise.test.yuf.annotation.TabResource;
 @TabResource("A表现层")
 public class Acontroller {
 	
-	@TabResource("A-hi")
+	@TabResource("Father-hi")
 	public void hi(){
 		System.out.println("A表现层的hi方法");
 	}

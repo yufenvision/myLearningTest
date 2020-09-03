@@ -104,8 +104,8 @@ public class Student implements Cloneable, Serializable{
         System.out.println(clone);
 
         System.out.println("克隆对象做出改变================================");
-        clone.setName("克隆学生");//为什么包装类型设置值后，引用就变了？
-        clone.setPassword(123);//为什么包装类型设置值后，引用就变了？
+        clone.setName("克隆学生");//为什么包装类型设置值后，引用就变了？因为赋值重新引用了啊！
+        clone.setPassword(123);//为什么包装类型设置值后，引用就变了？因为赋值重新引用了啊！
         clone.getTeacher().setName("克隆张老师");
 
         System.out.println("名字一样：" + (clone.getName() == student.getName()));

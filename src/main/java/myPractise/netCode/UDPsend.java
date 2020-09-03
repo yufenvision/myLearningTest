@@ -7,7 +7,7 @@ import java.net.InetAddress;
 
 /**
  * UDP协议发送数据
- * A:创建发送端Socket对象
+ * Father:创建发送端Socket对象
  * B:创建数据，并把数据打包
  * C:调用Socket对象的发送方法发送数据包
  * D:释放资源

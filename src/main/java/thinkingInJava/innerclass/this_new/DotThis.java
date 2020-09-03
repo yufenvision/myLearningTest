@@ -12,7 +12,7 @@ public class DotThis {
     public class Inner{
         public DotThis outer(){
             return DotThis.this;
-            //A plain "this" would be Inner's "this"
+            //Father plain "this" would be Inner's "this"
         }
     }
     public Inner inner(){

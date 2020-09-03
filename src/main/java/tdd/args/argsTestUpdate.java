@@ -80,7 +80,7 @@ public class argsTestUpdate {
 
     @Test
     public void test(){
-//        String[] ss = {"A","a","d","D"};
+//        String[] ss = {"Father","a","d","D"};
 //        Arrays.asList(ss).forEach(v ->{
 //            switch (v){
 //                case "a" :

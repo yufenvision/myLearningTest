@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 
 /*
  * 多线程实现的方式3：
- *  	A:创建一个线程池对象，控制要创建几个线程对象。
+ *  	Father:创建一个线程池对象，控制要创建几个线程对象。
  * 			public static ExecutorService newFixedThreadPool(int nThreads)
  * 		B:这种线程池的线程可以执行：
  * 			可以执行Runnable对象或者Callable对象代表的线程
@@ -38,7 +38,6 @@ public class CallableDemo {
 		//可以执行Runnable对象或者Callable对象代表的线程
 		Future<Integer> f1 = pool.submit(new MyCallable(100));
 		Future<Integer> f2 = pool.submit(new MyCallable(200));
-		
 		//V get();
 		Integer i1 = f1.get();
 		Integer i2 = f2.get();
