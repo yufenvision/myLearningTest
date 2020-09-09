@@ -34,7 +34,7 @@ public class StrReverse {
 		list.add("3");
 		list.add("4");
 		list.add("5");
-//		Iterator<String> iter = list.iterator();
+//		iterator<String> iter = list.iterator();
 //		while(iter.hasNext()){
 //			String temp = iter.next();
 //			if("2".equals(temp)){
