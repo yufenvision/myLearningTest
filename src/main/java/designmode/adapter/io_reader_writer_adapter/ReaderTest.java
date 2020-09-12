@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class ReaderTest {
     public static void main(String[] args){
-        try (InputStream in = ReaderTest.class.getResourceAsStream("file.txt")//这里的InputStream就是源角色
+        try (InputStream in = ReaderTest.class.getResourceAsStream("/file.txt")//这里的InputStream就是源角色
         ){
             Reader reader = new InputStreamReader(in);//Reader是目标接口，InputStreamReader是适配器(字节流转字符流)
             char[] chars = new char[1024];

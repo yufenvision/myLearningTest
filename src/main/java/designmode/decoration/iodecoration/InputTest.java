@@ -15,7 +15,7 @@ public class InputTest {
         try (
 //                InputStream in = new BufferedInputStream(InputTest.class.getResourceAsStream("test.txt"));
                 InputStream in = new LowerCaseInputStream(new BufferedInputStream(
-                        InputTest.class.getResourceAsStream("test.txt")));
+                        InputTest.class.getResourceAsStream("/test.txt")));
                 ){
 
 //            while((c = in.read()) > 0){
