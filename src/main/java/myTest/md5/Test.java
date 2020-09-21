@@ -1,9 +1,11 @@
 package myTest.md5;
 
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Test {
-	public static void main(String[] args) throws NoSuchAlgorithmException {
+	public static void main(String[] args) throws NoSuchAlgorithmException, ParseException {
 		String password = "Pass@2018";
 		String password1 = "12345678";
 		String password2 = "12345666";
@@ -13,7 +15,9 @@ public class Test {
 		System.out.println(MD5Utils.getMD5String(password));
 		System.out.println(MD5Utils.getMD5String(password1));
 		System.out.println(MD5Utils.getMD5String(password2));
-
-
+		SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time = "2020-09-14 10:27:10";
+		System.out.println(sm.parse(time).getTime());
+		System.out.println(String.valueOf(System.currentTimeMillis()).substring(0,10));
 	}
 }

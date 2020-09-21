@@ -19,7 +19,7 @@ public class Son implements Father<SonEntity> {
         age = String.valueOf(sonEntity.getSonAge());
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
         SonEntity sonEntity = new SonEntity();
         sonEntity.setSonName("干儿子");
         sonEntity.setSonAge(18L);
@@ -30,13 +30,16 @@ public class Son implements Father<SonEntity> {
         son.name = "亲儿子";
 
         String json = son.toJsonStr();
-        System.out.println(json);
+//        System.out.println(json);
 
         String xx = "{\"name\":\"亲亲儿子json\"}";
 
-        System.out.println(son.backFromJson(xx, Son.class));
-        System.out.println(son.backFromJson(json, Son.class).getClass());
-
+//        System.out.println(son.backFromJson(xx, Son.class));
+//        System.out.println(son.backFromJson(json, Son.class).getClass());
+        Son son1 = son.backFromJson(xx);
+        System.out.println(son1);
+        Son son2 = son.backFromJson(json);
+        System.out.println(son2);
     }
 
 }
