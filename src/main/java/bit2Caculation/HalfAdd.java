@@ -12,6 +12,13 @@ public class HalfAdd {
     private boolean sum;
     private boolean carryOut;
 
+    public HalfAdd() {
+    }
+
+    public HalfAdd(boolean a, boolean b) {
+        initAB(a, b);
+    }
+
     public void initAB(boolean a, boolean b){
         this.a = a;
         this.b = b;
