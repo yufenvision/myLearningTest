@@ -1,12 +1,14 @@
 package myTest.md5;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class GuanLinAuthTest {
             HttpResponse resp = httpclient.execute(get);
             if(resp.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_OK){
                 String strResp = EntityUtils.toString(resp.getEntity());
-                JSONObject jsonObject = new JSONObject(strResp);
+                JSONObject jsonObject = JSON.parseObject(strResp);
                 JSONObject body = jsonObject.getJSONObject("body").getJSONObject("token");
                 result = body.toString();
                 System.out.println("token: " + result);
