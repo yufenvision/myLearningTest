@@ -1,4 +1,4 @@
-package thinkinjava.directory;
+package io.directory;
 
 import java.io.File;
 import java.util.List;

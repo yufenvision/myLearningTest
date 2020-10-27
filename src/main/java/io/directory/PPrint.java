@@ -1,4 +1,4 @@
-package thinkinjava.directory;
+package io.directory;
 
 import java.util.Arrays;
 import java.util.Collection;

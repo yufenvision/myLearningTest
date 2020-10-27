@@ -1,4 +1,4 @@
-package thinkinjava.filenamefilter;
+package io.filenamefilter;
 
 import java.io.File;
 import java.io.FilenameFilter;

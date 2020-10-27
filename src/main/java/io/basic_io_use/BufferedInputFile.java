@@ -1,4 +1,4 @@
-package thinkinjava.basic_io_use;
+package io.basic_io_use;
 
 import java.io.*;
 
@@ -22,6 +22,6 @@ public class BufferedInputFile {
         System.out.println(BufferedInputFile.class.getResource("").getPath());
         System.out.println(ClassLoader.getSystemResource("").getPath());
         System.out.println(System.getProperty("user.dir"));
-        System.out.println(read("D:\\eclipse_neon\\eclipse\\workspace\\myTest\\src\\io\\thinkinjava\\basic_io_use\\BufferedInputFile.java"));
+        System.out.println(read("E:/passVehicle.proto"));
     }
 }

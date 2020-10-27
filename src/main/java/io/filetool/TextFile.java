@@ -1,4 +1,4 @@
-package thinkinjava.filetool;
+package io.filetool;
 
 import java.io.*;
 import java.util.ArrayList;

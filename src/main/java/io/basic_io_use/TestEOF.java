@@ -1,4 +1,4 @@
-package thinkinjava.basic_io_use;
+package io.basic_io_use;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package thinkinjava.basic_io_use;
+package io.basic_io_use;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -15,7 +15,7 @@ public class FormattedMemoryInput {
         try {
             DataInputStream in = new DataInputStream(
                     new ByteArrayInputStream(
-                            BufferedInputFile.read("D:\\eclipse_neon\\eclipse\\workspace\\myTest\\src\\io\\thinkinjava\\basic_io_use\\FormattedMemoryInput.java").getBytes()
+                            BufferedInputFile.read("E:/passVehicle.proto").getBytes()
                     )
             );
             while(true) {
