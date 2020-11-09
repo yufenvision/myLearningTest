@@ -1,4 +1,4 @@
-package bit2Caculation;
+package bit2caculation;
 
 /**
  * @Description: 全加器
