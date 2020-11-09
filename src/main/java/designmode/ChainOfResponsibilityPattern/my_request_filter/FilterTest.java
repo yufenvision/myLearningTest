@@ -48,14 +48,26 @@ class FilterChian{
 
 
     public void doFilter(Request request, Response response) {
-        // 所有过滤器执行完毕，return
-        if(index == filterList.size()){
-            return;
+//        // 所有过滤器执行完毕，return
+//        if(index == filterList.size()){
+//            return;
+//        }
+//        Filter filter = filterList.get(index);
+//        // 自增操作不能和下面doFilter互换
+//        index++;
+//        filter.doFilter(request, response, this);
+
+        //实现看tomcat的ApplicationFilterChain
+        if(index < filterList.size()){
+            Filter filter = filterList.get(index);
+            // 自增操作不能和下面doFilter互换
+            index++;
+            filter.doFilter(request, response, this);
+        }else {
+            //执行servlet的service方法...
+            System.out.println("执行servlet中service方法。。。。。。");
         }
-        Filter filter = filterList.get(index);
-        // 自增操作不能和下面doFilter互换
-        index++;
-        filter.doFilter(request, response, this);
+
 
     }
 }
