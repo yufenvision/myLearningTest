@@ -1,7 +1,7 @@
 package designmode.proxy.cglib;
 
 import designmode.proxy.jdk.dynamic.Landlord;
-import designmode.proxy.jdk.dynamic.IUserService;
+import designmode.proxy.jdk.dynamic.HouseOwner;
 import net.sf.cglib.core.DebuggingClassWriter;
 
 /**
@@ -19,7 +19,7 @@ public class cglibTest {
     public static void main(String[] args){
         System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E:\\\\classes");
         CglibProxy proxy = new CglibProxy();
-        IUserService userService = (Landlord) proxy.CreatProxyedObj(Landlord.class);
+        HouseOwner userService = (Landlord) proxy.CreatProxyedObj(Landlord.class);
         userService.say("我是cglib代理创造的...");
     }
 }

@@ -1,6 +1,6 @@
 package designmode.proxy.cglib;
 
-import designmode.proxy.jdk.dynamic.IUserService;
+import designmode.proxy.jdk.dynamic.HouseOwner;
 import designmode.proxy.jdk.dynamic.JDKProxy;
 import designmode.proxy.jdk.dynamic.Landlord;
 
@@ -12,20 +12,20 @@ import designmode.proxy.jdk.dynamic.Landlord;
 public class CountTime{
 
 
-    public static void getCostTime(IUserService iUserService){
+    public static void getCostTime(HouseOwner houseOwner){
         long begin = System.currentTimeMillis();
-        iUserService.say("干事");
+        houseOwner.say("干事");
         long end = System.currentTimeMillis();
         long usedTime = end - begin;
-        System.out.println(iUserService.getClass().getName() + "耗时： " + usedTime);
+        System.out.println(houseOwner.getClass().getName() + "耗时： " + usedTime);
     }
 
     public static void main(String[] args){
         CglibProxy proxy = new CglibProxy();
-        IUserService cglibProxy = (Landlord) proxy.CreatProxyedObj(Landlord.class);
+        HouseOwner cglibProxy = (Landlord) proxy.CreatProxyedObj(Landlord.class);
 
         JDKProxy proxy1 = new JDKProxy(new Landlord());
-        IUserService jdkProxy = (IUserService) proxy1.getProxy();
+        HouseOwner jdkProxy = (HouseOwner) proxy1.getProxy();
 
         CountTime.getCostTime(jdkProxy);
         System.out.println("============================================");

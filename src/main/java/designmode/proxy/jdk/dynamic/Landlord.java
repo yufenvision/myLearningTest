@@ -1,7 +1,7 @@
 package designmode.proxy.jdk.dynamic;
 
 //真实主题角色：房东
-public class Landlord implements IUserService{
+public class Landlord implements HouseOwner {
 
 	//房东讲话
 	@Override

@@ -8,7 +8,7 @@ package designmode.proxy.jdk.staticproxy;
 public class MainTest {
 
     public static void main(String[] args){
-        StaticProxy staticProxy = new StaticProxy();
+        StaticProxy staticProxy = new StaticProxy(new Landlord());
         staticProxy.say("我要卖房子了");
     }
 
