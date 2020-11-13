@@ -1,4 +1,4 @@
-package designmode.ChainOfResponsibilityPattern.my_filter;
+package designmode.chain_of_responsibility_pattern.my_filter;
 
 /**
  * @Description:

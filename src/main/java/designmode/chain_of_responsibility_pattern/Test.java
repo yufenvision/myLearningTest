@@ -1,6 +1,4 @@
-package designmode.ChainOfResponsibilityPattern;
-
-import com.sun.net.httpserver.Filter;
+package designmode.chain_of_responsibility_pattern;
 
 /**
  * @Description:

@@ -1,4 +1,4 @@
-package designmode.ChainOfResponsibilityPattern.my_request_filter;
+package designmode.chain_of_responsibility_pattern.my_request_filter;
 
 import java.util.ArrayList;
 import java.util.List;
