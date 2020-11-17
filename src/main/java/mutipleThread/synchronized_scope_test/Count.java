@@ -1,5 +1,7 @@
 package mutipleThread.synchronized_scope_test;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * @Author: dyf
  * @Date: 2020/11/17 22:29
@@ -18,12 +20,13 @@ public class Count {
         }
     }
 
-    public synchronized void count1() {
+    public synchronized void count1(CountDownLatch countDownLatch) {
         int num = 0;
         while (num < 100){
             System.out.print(num + " ");
             num++;
         }
+        countDownLatch.countDown();
     }
 
 
