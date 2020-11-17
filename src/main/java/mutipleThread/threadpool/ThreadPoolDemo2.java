@@ -15,6 +15,6 @@ public class ThreadPoolDemo2 {
         pool.submit(new MyRunnable());
         pool.submit(new MyRunnable());
         pool.submit(new MyRunnable());
-
+        pool.shutdown();
     }
 }
