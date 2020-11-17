@@ -3,19 +3,21 @@ package rsa;
 import sun.misc.BASE64Decoder;
 
 import javax.crypto.Cipher;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.security.*;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-import java.security.spec.*;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.*;
-
+import org.apache.commons.codec.binary.Base64;
 /**
  * @Author: dyf
  * @Date: 2019/10/17 10:04
  * @Description:
  */
-public class RSAUtil {
+public class RSAUtilBase64 {
     private static Map<Integer, String> keyMap = new HashMap<Integer, String>();  //用于封装随机产生的公钥与私钥
 
     //存取外部,私钥
@@ -55,7 +57,7 @@ public class RSAUtil {
         String privateKeyPath = basePath + "/src/main/java/rsa/pkcs8_private_key.pem";     // replace your private path here
         String rsaBase46StringFromIOS = "h9Sunsga1YtCBCRmLoA1WJ/SZOtDJuwfTTzIrZx1qx977Y2UD7OKU4Hu9h1gzgNtGzUWP1enTdUERPbCCAeQ1w+JrB4/R/yfLTIeO/8jXoQHfv1ZIDcVkQfJRo+AZo5N/eHES7bBcYvXglKSp9C/urYtrTL/WepOXGu8Dy85sH0=";
         String privateKeyStrIOS = getKeyFromFile(privateKeyPath);
-        System.out.println(RSAUtil.decryptIOS(rsaBase46StringFromIOS, privateKeyStrIOS));
+        System.out.println(RSAUtilBase64.decryptIOS(rsaBase46StringFromIOS, privateKeyStrIOS));
     }
 
     /**
@@ -71,9 +73,9 @@ public class RSAUtil {
         KeyPair keyPair = keyPairGen.generateKeyPair();
         RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();   // 得到私钥
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();  // 得到公钥
-        String publicKeyString = Base64.getEncoder().encodeToString(publicKey.getEncoded());
+        String publicKeyString = Base64.encodeBase64String(publicKey.getEncoded());
         // 得到私钥字符串
-        String privateKeyString = Base64.getEncoder().encodeToString(privateKey.getEncoded());
+        String privateKeyString = Base64.encodeBase64String(privateKey.getEncoded());
         // 将公钥和私钥保存到Map
         keyMap.put(0,publicKeyString);  //0表示公钥
         keyMap.put(1,privateKeyString);  //1表示私钥
@@ -91,13 +93,13 @@ public class RSAUtil {
      */
     public static String encrypt( String encodeStr, String publicKeyStr ) throws Exception{
         //base64编码的公钥
-        byte[] decoded = Base64.getDecoder().decode(publicKeyStr);
+        byte[] decoded = Base64.decodeBase64(publicKeyStr);
 
         RSAPublicKey pubKey = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(decoded));
         //RSA加密
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.ENCRYPT_MODE, pubKey);
-        String outStr = Base64.getEncoder().encodeToString(cipher.doFinal(encodeStr.getBytes("UTF-8")));
+        String outStr = Base64.encodeBase64String(cipher.doFinal(encodeStr.getBytes("UTF-8")));
         return outStr;
     }
 
@@ -114,9 +116,9 @@ public class RSAUtil {
      */
     public static String decrypt(String decodeStr, String privateKeyStr) throws Exception{
         //64位解码加密后的字符串
-        byte[] inputByte = Base64.getDecoder().decode(decodeStr.getBytes("UTF-8"));
+        byte[] inputByte = Base64.decodeBase64(decodeStr.getBytes("UTF-8"));
         //base64编码的私钥
-        byte[] decoded = Base64.getDecoder().decode(privateKeyStr);
+        byte[] decoded = Base64.decodeBase64(privateKeyStr);
         RSAPrivateKey priKey = (RSAPrivateKey) KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(decoded));
         //RSA解密
         Cipher cipher = Cipher.getInstance("RSA");
@@ -127,7 +129,7 @@ public class RSAUtil {
 
     public static String decryptIOS(String decodeStr, String privateKeyStr) throws Exception{
         //64位解码加密后的字符串
-        byte[] inputByte = Base64.getDecoder().decode(decodeStr.getBytes("UTF-8"));
+        byte[] inputByte = Base64.decodeBase64(decodeStr.getBytes("UTF-8"));
         //base64编码的私钥
         byte[] decoded = new BASE64Decoder().decodeBuffer(privateKeyStr);//不知道为什么，这里只有用sum.misc的base64解码，不会报错
         RSAPrivateKey priKey = (RSAPrivateKey) KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(decoded));
@@ -162,7 +164,7 @@ public class RSAUtil {
      * @throws Exception 加载公钥时产生的异常
      */
     public void loadPublicKey(String publicKeyStr) throws Exception{
-        byte[] buffer= Base64.getDecoder().decode(publicKeyStr);
+        byte[] buffer= Base64.decodeBase64(publicKeyStr);
         KeyFactory keyFactory= KeyFactory.getInstance("RSA");
         X509EncodedKeySpec keySpec= new X509EncodedKeySpec(buffer);
         this.publicKey= (RSAPublicKey) keyFactory.generatePublic(keySpec);
@@ -170,7 +172,7 @@ public class RSAUtil {
 
 
     public void loadPrivateKey(String privateKeyStr) throws Exception{
-        byte[] buffer= Base64.getDecoder().decode(privateKeyStr);
+        byte[] buffer= Base64.decodeBase64(privateKeyStr);
         PKCS8EncodedKeySpec keySpec= new PKCS8EncodedKeySpec(buffer);
         KeyFactory keyFactory= KeyFactory.getInstance("RSA");
         this.privateKey= (RSAPrivateKey) keyFactory.generatePrivate(keySpec);
