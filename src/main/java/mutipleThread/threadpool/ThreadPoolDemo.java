@@ -1,5 +1,8 @@
 package mutipleThread.threadpool;
 
+import org.junit.Test;
+
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -32,4 +35,10 @@ public class ThreadPoolDemo {
 		//结束线程池
 		pool.shutdown();
 	}
+
+	@Test
+	public void cachThreadPool(){
+
+	}
+
 }
