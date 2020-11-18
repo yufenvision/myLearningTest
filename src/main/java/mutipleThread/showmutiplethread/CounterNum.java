@@ -14,7 +14,7 @@ public class CounterNum extends Thread{
 		}
 	}
 
-	
+	//这里不会有线程安全的问题，因为num是局部变量，存储在虚拟机栈中，而虚拟机栈是线程私有的。
 	public static void main(String[] args) {
 		CounterNum my1 = new CounterNum();
 		CounterNum my2 = new CounterNum();
