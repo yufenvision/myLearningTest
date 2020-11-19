@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+import lombok.Data;
 import myTest.md5.MD5Utils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -17,32 +19,36 @@ public class TempTest {
 
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-        String appId = "41010";
-        String appSecret = "pp7oCReUTplYJkJNWsnbLg2S7OeLiMj8";
-        String timestamp = String.valueOf(System.currentTimeMillis());
-        String type = "3";
-        String token = "";
-        String verify = timestamp + "|" + type + "|" + appSecret;
+        B b = new B();
+        Gson gson = new Gson();
+        b.age = "13";
+        System.out.println(gson.toJson(b));
 
-        verify = MD5Utils.getMD5String(verify);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(appId)
-                .append(":").append(timestamp)
-                .append(":").append(verify)
-//                .append(":").append("")
-                .append(":").append("C9570C2714EA3D4C")
-                .append(":").append(type);
-
-        System.out.println(sb.toString());
-        BASE64Encoder encoder = new BASE64Encoder();
-        BASE64Decoder decoder = new BASE64Decoder();
-
-        String encode = encoder.encode(sb.toString().getBytes());
-        System.out.println(encode);
-
-        System.out.println(new String(decoder.decodeBuffer("NDEwMTA6MTU5OTg4MTY3ODY5NDpEMjE2NUQ2Rjk1QjgzNUFGMTNDNUExQUNFMkU0QjQzQzp7InRva2VuIjoiQzk1NzBDMjcxNEVBM0Q0QyJ9OjM=")));
-        System.out.println(new String(decoder.decodeBuffer("NDEwMTA6MTU5OTg4MTcwMzgyMzpBQkNDMzcxOTg0NzQ4NTIzNjk5OTA4M0E4QkFFRkRFODpDOTU3MEMyNzE0RUEzRDRDOjM=")));
+        D d = new D();
+        d.xx = "xx";
+        System.out.println(gson.toJson(d));
     }
 
+}
+
+abstract class A{
+    protected String name = "抽象类";
+    protected void show(){
+        System.out.println(this.name);
+    }
+}
+
+@Data
+class B extends A{
+    public String age;
+
+}
+
+interface C{
+    String iName = "接口";
+}
+
+@Data
+class D implements C{
+    public String xx;
 }

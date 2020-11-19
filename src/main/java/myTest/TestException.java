@@ -10,7 +10,7 @@ public class TestException
         try{
             ret =testEx1();
         }catch (Exception e){
-            System.out.println("testEx,catch exception");
+            System.out.println("testEx,catch java_base.exception");
             ret =false;
             throw e;
         }finally{
@@ -28,7 +28,7 @@ public class TestException
             System.out.println("testEx1,at the end of try");
             return ret;
         }catch (Exception e){
-            System.out.println("testEx1,catch exception");
+            System.out.println("testEx1,catch java_base.exception");
             ret =false;
             throw e;
         }finally{
@@ -47,7 +47,7 @@ public class TestException
             }
             return true;
         }catch (Exception e){
-            System.out.println("testEx2,catch exception");
+            System.out.println("testEx2,catch java_base.exception");
             ret =false;
             throw e;
         }finally{

@@ -30,11 +30,11 @@ public class CreateUUID {
 			System.out.println("离万毛30大寿还有: " + time/1000 + " 秒");
 			System.out.println("离万毛30大寿还有: " + time + " 豪秒");
 			
-//			System.out.println("段帅哥还有: " + (time/1000)/(60*60*24) + " 天" + "满18啦");
-//			System.out.println("段帅哥还有: " + (time/1000)/(60*60) + " 小时" + "满18啦");
-//			System.out.println("段帅哥还有: " + (time/1000)/(60) + " 分钟" + "满18啦");
-//			System.out.println("段帅哥还有: " + time/1000 + " 秒" + "满18啦");
-//			System.out.println("段帅哥还有: " + time + " 豪秒" + "满18啦");
+//			System.out.println("段帅哥还有: " + (java_base.time/1000)/(60*60*24) + " 天" + "满18啦");
+//			System.out.println("段帅哥还有: " + (java_base.time/1000)/(60*60) + " 小时" + "满18啦");
+//			System.out.println("段帅哥还有: " + (java_base.time/1000)/(60) + " 分钟" + "满18啦");
+//			System.out.println("段帅哥还有: " + java_base.time/1000 + " 秒" + "满18啦");
+//			System.out.println("段帅哥还有: " + java_base.time + " 豪秒" + "满18啦");
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
