@@ -54,10 +54,10 @@ public class GifEncoder
     protected int sample = 10; // default sample interval for quantizer
 
     /**
-     * Sets the delay time between each frame, or changes it
+     * Sets the delay java_base.time between each frame, or changes it
      * for subsequent frames (applies to last frame added).
      *
-     * @param ms int delay time in milliseconds
+     * @param ms int delay java_base.time in milliseconds
      */
     public void setDelay(int ms) {
         delay = Math.round(ms / 10.0f);
@@ -481,7 +481,7 @@ public class GifEncoder
     }
 
     /**
-     * Writes string to output stream
+     * Writes java_base.string to output stream
      */
     protected void writeString(String s) throws IOException {
         for (int i = 0; i < s.length(); i++) {

@@ -95,7 +95,7 @@ public abstract class Captcha extends Randoms {
 	/**
 	 * 获取随机字符串
 	 * 
-	 * @return string
+	 * @return java_base.string
 	 */
 	public String text() {
 		return chars;

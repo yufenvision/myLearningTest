@@ -10,7 +10,7 @@ public class PrintfTest {
 		System.out.printf("%s:%n\t%d",s,i);
 		
 		SimpleDateFormat d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		String time = d.format(new Date("154155680800"));
+//		String java_base.time = d.format(new Date("154155680800"));
 		System.out.println(System.currentTimeMillis());
 		
 	}

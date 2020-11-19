@@ -15,7 +15,7 @@ public class SearchCourseName {
 		//创建目标file对象
 		File srcFile = new File("H:/传智播客_2015年Java基础班视频精华版");
 		
-		//创建一个list[Map<string,String[]>]
+		//创建一个list[Map<java_base.string,String[]>]
 		List<Map<String,String[]>> list = new ArrayList<>();
 		//遍历file取得第一级的所有目录名称，
 		File[] fileAll = srcFile.listFiles();
@@ -43,7 +43,7 @@ public class SearchCourseName {
 //		}
 		
 		/**
-		 * 创建一个list[Map<string,String[]>]
+		 * 创建一个list[Map<java_base.string,String[]>]
 		 * 
 		 * 遍历file
 		 * 	取得第一级的所有目录名称，
