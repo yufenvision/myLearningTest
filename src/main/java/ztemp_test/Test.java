@@ -1,8 +1,9 @@
-package ZTempTest;
+package ztemp_test;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,6 +12,7 @@ import java.util.regex.Pattern;
  * @Date: 2020/9/1 16:06
  * @Description:
  */
+@Slf4j
 public class Test {
 
     public static void main(String[] args){
@@ -26,7 +28,7 @@ public class Test {
         Matcher m = pattern.matcher(address);
         String parseStr = "";
         if(m.find())parseStr = m.group();
-        System.out.println(parseStr);
+        log.error(parseStr);
         String deParese = parseStr.replaceAll("\\D+","-");
         deParese = deParese.substring(0, deParese.lastIndexOf("-"));
         String[] arr = deParese.split("-");
@@ -35,7 +37,7 @@ public class Test {
         map.put("unitNum", arr[1]);
         map.put("floorNum", arr[2]);
         map.put("roomNum", arr[3]);
-        System.out.println(map);
+        log.info(map.get("buildNum"));
 
     }
 }

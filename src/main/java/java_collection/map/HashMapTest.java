@@ -16,6 +16,10 @@ public class HashMapTest {
         String value = map.put("美团","小林");
         System.out.println(value);
 
+        for(char a = 'a'; a <= 'c' ; a++){
+            System.out.println(a);
+
+        }
     }
 
 }

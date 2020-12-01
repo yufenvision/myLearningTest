@@ -1,5 +1,6 @@
 import com.google.gson.Gson;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import myTest.md5.MD5Utils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -14,6 +15,7 @@ import java.util.function.Consumer;
  * @Date: 2020/9/1 11:26
  * @Description:
  */
+@Slf4j
 public class TempTest {
 
 
@@ -22,11 +24,11 @@ public class TempTest {
         B b = new B();
         Gson gson = new Gson();
         b.age = "13";
-        System.out.println(gson.toJson(b));
+        log.info("对象b的属性【{}】",gson.toJson(b));
 
         D d = new D();
         d.xx = "xx";
-        System.out.println(gson.toJson(d));
+        log.info("对象d的属性【{}】",gson.toJson(d));
     }
 
 }

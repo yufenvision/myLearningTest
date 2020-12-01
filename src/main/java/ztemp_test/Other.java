@@ -1,4 +1,4 @@
-package ZTempTest;
+package ztemp_test;
 
 /**
  * @Author: dyf
