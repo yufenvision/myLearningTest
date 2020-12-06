@@ -44,5 +44,6 @@ public class Singleton {
         for (int i = 0; i < 100 ; i++) {
             threadPoolExecutor.execute(() -> System.out.println(Singleton.getInstance().hashCode()));
         }
+        threadPoolExecutor.shutdown();
     }
 }
