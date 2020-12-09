@@ -22,6 +22,7 @@ public class CollectTest {
                 new Student("宫城良田", 16, 167),
                 new Student("赤木刚宪", 18, 192)).collect(Collectors.toList());
 
+        //根据属性去重
         List<Student> distinctStudent = students.stream()
                 .collect(Collectors.collectingAndThen(
                         Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(o -> o.getName() + ";" + o.getAge()))), ArrayList::new));
