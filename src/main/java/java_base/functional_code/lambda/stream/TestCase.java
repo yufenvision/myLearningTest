@@ -44,9 +44,16 @@ public class TestCase {
         System.out.println(sortedStudents);
         System.out.println(sortedStudents2);
 
+
         //3、map，转换，内部就是Function接口。中间操作
         List<String> names = list.stream().map(stu -> stu.getName()).collect(Collectors.toList());
         System.out.println(names);
+
+        //4、Match,匹配，允许检测指定的Predicate是否匹配整个Stream。所有的匹配操作都是 最终操作 ，并返回一个 boolean 类型的值。
+        boolean anyMatch = list.stream().anyMatch(v -> v.getName().matches("^三.*"));
+        boolean anyMatch2 = list.stream().allMatch(v -> v.getAge() < 20);
+        System.out.println(anyMatch);
+        System.out.println(anyMatch2);
 
         //4、flatMap,将多个Stream合并为一个Stream。中间操作
         List<Student> studentList = Stream.of(list, Arrays.asList(new Student("宫城良田", 16, 167), new Student("赤木刚宪", 18, 192)))
