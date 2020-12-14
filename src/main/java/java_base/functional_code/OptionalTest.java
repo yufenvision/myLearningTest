@@ -19,12 +19,17 @@ public class OptionalTest {
 
     public static void main(String[] args){
         Optional<String> name = Optional.of("yuf");
-        System.out.println(name);
+        System.out.println(name.get());
         //Optional<String> someNull1 = Optional.of(null);//会空指针
         Optional<String> someNull2 = Optional.ofNullable(null);
-        System.out.println(someNull2);
+        System.out.println(someNull2.orElseGet(() -> "s"));
         System.out.println(someNull2.orElse(null));
         System.out.println(someNull2.orElse("这是空的"));
+
+        //orElseGet
+        someNull2.orElseGet(() -> "123");
+        System.out.println(someNull2);
+
         //map函数
         User u = new User();
         System.out.println(Optional.ofNullable(u)
