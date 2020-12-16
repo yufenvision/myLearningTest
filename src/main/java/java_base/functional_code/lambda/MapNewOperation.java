@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public class MapNewOperation {
 
+
     public static void main(String[] args) {
         /**
          *  Maps
@@ -18,28 +19,30 @@ public class MapNewOperation {
          *  此外,Maps 支持各种新的和有用的方法来执行常见任务。
          */
         Map<Integer, String> map = new HashMap<>();
+        map.put(0, "000");
+        map.put(1, null);
         for (int i = 0; i < 10; i++) {
-            map.putIfAbsent(i, "val" + i);
+            map.putIfAbsent(i, "val" + i);//值不存在,也就是不为null才插入
         }
 
         map.forEach((id, val) -> System.out.println(val));//val0 val1 val2 val3 val4 val5 val6 val7 val8 val9
         //putIfAbsent 阻止我们在null检查时写入额外的代码;forEach接受一个 consumer 来对 map 中的每个元素操作。
 
         //此示例显示如何使用函数在 map 上计算代码：
-        map.computeIfPresent(3, (num, val) -> val + num);
+        map.computeIfPresent(3, (num, val) -> val + num);//值不为null则计算
         map.get(3);             // val33
 
-        map.computeIfPresent(9, (num, val) -> null);
+        map.computeIfPresent(9, (num, val) -> null);//9的值不为null,才移除掉9
         map.containsKey(9);     // false
 
-        map.computeIfAbsent(23, num -> "val" + num);
+        map.computeIfAbsent(23, num -> "val" + num);//23的值为null，才计算
         map.containsKey(23);    // true
 
         map.computeIfAbsent(3, num -> "bam");
         map.get(3);             // val33
         //接下来展示如何在Map里删除一个键值全都匹配的项：
 
-        map.remove(3, "val3");
+        map.remove(3, "val3");//key为3的value等于val3才移除
         map.get(3);             // val33
         map.remove(3, "val33");
         map.get(3);             // null
