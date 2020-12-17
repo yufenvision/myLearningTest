@@ -70,7 +70,7 @@ public class ResourceImpl {
 	
 	//测试
 	public static void main(String[] args) throws ClassNotFoundException {
-		String[] packages = {"test.yuf.controller"};
+		String[] packages = {"myPractise.test.yuf.controller"};
 		loadPackage(packages);
 		Map<String,List<String>> modules = getModules();
 		System.out.println(modules);
