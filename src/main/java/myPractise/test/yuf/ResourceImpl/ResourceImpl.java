@@ -38,7 +38,7 @@ public class ResourceImpl {
 	}
 	
 	//2）、根据controller类的全限定名，获取该包下所有方法名（注解判断是否添加该方法，方法别名），然后持久化resource对象。
-	public static <Resource> List<MyResource> importController(String module) throws ClassNotFoundException{
+	public static List<MyResource> importController(String module) throws ClassNotFoundException{
 		List<MyResource> resources = new ArrayList<>();
 		Class<?> clz = Class.forName(module);
 		//获取类别名
