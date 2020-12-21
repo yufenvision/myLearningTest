@@ -1,6 +1,7 @@
 package java_io.object2byte;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;
 
@@ -37,11 +38,11 @@ public class SerializableTest {
 
     public static void main(String[] args) {
         Student student = new Student("小明",18,1);
-        String jsonStudent = JSON.toJSONString(student);
+        String jsonStudent = JSONObject.toJSONString(student);
         System.out.println(jsonStudent);
-//        writeObject2Disk(student, "E:/test.txt");
-//        writeObject2Disk(JSON.toJSONString(student),"E:/testJsonIn.txt");
-//        Student studentFromDisk = disk2Object("E:/test.txt", Student.class);
+        writeObject2Disk(student, "E:/test.txt");
+        writeObject2Disk(JSONObject.toJSONString(student),"E:/testJsonIn.txt");
+
         Student studentFromDisk = disk2Object("E:/test.txt");
         System.out.println(studentFromDisk);
         String studentFromDisk2 = disk2Object("E:/testJsonIn.txt");

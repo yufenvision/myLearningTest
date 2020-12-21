@@ -1,7 +1,6 @@
 package java_base.reflect;
 
 import java_base.reflect.service.SomeService;
-import java_base.reflect.service.impl.AServiceImpl;
 
 import java.io.File;
 import java.util.ArrayList;

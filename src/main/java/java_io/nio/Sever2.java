@@ -76,8 +76,7 @@ public class Sever2 {
                                     // (3) 面向 Buffer
                                     clientChannel.read(byteBuffer);
                                     byteBuffer.flip();
-                                    System.out.println(
-                                            Charset.defaultCharset().newDecoder().decode(byteBuffer).toString());
+                                    System.out.println(Charset.defaultCharset().newDecoder().decode(byteBuffer).toString());
                                 } finally {
                                     keyIterator.remove();
                                     key.interestOps(SelectionKey.OP_READ);
