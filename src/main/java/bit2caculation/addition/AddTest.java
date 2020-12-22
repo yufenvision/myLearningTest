@@ -1,14 +1,13 @@
-package bit2caculation;
+package bit2caculation.addition;
+
+import bit2caculation.addition.Bit2AddMachine;
 
 /**
  * @Description:
  * @Author: dyf
  * @Date: 2020/10/23 15:00
  */
-public class Test {
-
-
-
+public class AddTest {
 
 
     public static void main(String[] args) {

@@ -1,4 +1,6 @@
-package bit2caculation;
+package bit2caculation.subtraction;
+
+import bit2caculation.addition.AllAdd;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,14 +11,14 @@ import java.util.List;
  * @Author: dyf
  * @Date: 2020/10/23 15:41
  */
-public class Bit2AddMachine {
+public class Bit2SubMachine {
 
     private char[] a;
     private char[] b;
     private String result;
-    private Integer bit;
+    private Integer bit;//几位运算
 
-    public Bit2AddMachine(Integer bit) {
+    public Bit2SubMachine(Integer bit) {
         this.bit = bit;
     }
 
@@ -39,12 +41,6 @@ public class Bit2AddMachine {
         this.a = a1.toCharArray();
         this.b = b1.toCharArray();
         return count();
-    }
-
-    //十进制数字计算
-    public String add(Integer a1, Integer b1){
-
-        return null;
     }
 
 

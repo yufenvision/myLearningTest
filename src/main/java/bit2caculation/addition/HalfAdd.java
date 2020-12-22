@@ -1,4 +1,4 @@
-package bit2caculation;
+package bit2caculation.addition;
 
 /**
  * @Description: 半加器
@@ -7,10 +7,10 @@ package bit2caculation;
  */
 public class HalfAdd {
 
-    private boolean a;
-    private boolean b;
-    private boolean sum;
-    private boolean carryOut;
+    private boolean a;//输入a
+    private boolean b;//输入b
+    private boolean sum;//加和输出
+    private boolean carryOut;//进位输出
 
     public HalfAdd() {
     }
@@ -22,8 +22,8 @@ public class HalfAdd {
     public void initAB(boolean a, boolean b){
         this.a = a;
         this.b = b;
-        sum = (!(a && b)) && (a || b);
-        carryOut = a && b;
+        sum = (!(a && b)) && (a || b); //异或门
+        carryOut = a && b; //与门
     }
 
     public boolean isSum() {

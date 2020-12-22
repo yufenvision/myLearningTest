@@ -1,4 +1,4 @@
-package bit2caculation;
+package bit2caculation.addition;
 
 /**
  * @Description: 全加器
@@ -7,11 +7,11 @@ package bit2caculation;
  */
 public class AllAdd {
 
-    private boolean a;
-    private boolean b;
-    private boolean carryInput;
-    private boolean sum;
-    private boolean carryOut;
+    private boolean a;//输入a
+    private boolean b;//输入b
+    private boolean carryInput;//进位输入
+    private boolean sum;//加合输出
+    private boolean carryOut;//进位输出
 
     public AllAdd() {
     }
@@ -24,15 +24,11 @@ public class AllAdd {
         this.a = a;
         this.b = b;
         this.carryInput = carryInput;
-        HalfAdd halfAdd1 = new HalfAdd();
-        halfAdd1.initAB(a,b);
-        HalfAdd halfAdd2 = new HalfAdd();
-        halfAdd2.initAB(carryInput, halfAdd1.isSum());
+        HalfAdd halfAdd1 = new HalfAdd(a, b);
+        HalfAdd halfAdd2 = new HalfAdd(carryInput, halfAdd1.isSum());
         sum = halfAdd2.isSum();
         carryOut = halfAdd1.isCarryOut() || halfAdd2.isCarryOut();
     }
-
-
 
     public void initABC(boolean a, boolean b) {
         initABC(a, b, false);
