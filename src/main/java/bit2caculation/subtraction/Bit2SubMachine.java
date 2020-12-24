@@ -39,10 +39,16 @@ public class Bit2SubMachine {
     public String add(String a1, String b1){
         if(a1.length() != b1.length() || a1.length() != bit)return "输入数字长度错误, 请检查";
         a1 = new StringBuffer(a1).reverse().toString();
-        if(!addSubFlag)b1 = new StringBuffer(b1).reverse().toString();
+        b1 = new StringBuffer(b1).reverse().toString();
         this.a = a1.toCharArray();
         this.b = b1.toCharArray();
-        return count();
+        if(addSubFlag){
+            for (int i = 0; i < this.b.length; i++) {
+                this.b[i] = this.b[i] == '0' ? '1':'0';
+            }
+        }
+        String result = count();
+        return addSubFlag ? result.substring(1) : result;
     }
 
 
@@ -71,9 +77,9 @@ public class Bit2SubMachine {
     //递归实现？
     private AllAdd getCIAllAdd(Integer i){
         if(i == 0){
-            return new AllAdd(bit(a[0]),bit(b[0]), false);
+            return new AllAdd(bit(a[0]),bit(b[0]), addSubFlag);
         }else if(i == 1){
-            return new AllAdd(bit(a[1]),bit(b[1]), new AllAdd(bit(a[0]),bit(b[0]), false).isCarryOut());
+            return new AllAdd(bit(a[1]),bit(b[1]), new AllAdd(bit(a[0]),bit(b[0]), addSubFlag).isCarryOut());
         }else {
             return new AllAdd(bit(a[i]),bit(b[i]), getCIAllAdd(i-1).isCarryOut());
         }
