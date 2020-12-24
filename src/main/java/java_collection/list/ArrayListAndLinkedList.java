@@ -15,14 +15,16 @@ public class ArrayListAndLinkedList {
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
-
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(4);
-        linkedList.add(5);
-        linkedList.add(6);
-
         System.out.println(arrayList.get(0));
-        System.out.println(linkedList.get(0));
+
+        LinkedList link1 = new LinkedList();
+        link1.add(4);//尾插法
+        link1.add(5);
+        link1.add(6);
+
+        System.out.println(link1.getFirst());
+        System.out.println(link1.getLast());
+
 
     }
 }

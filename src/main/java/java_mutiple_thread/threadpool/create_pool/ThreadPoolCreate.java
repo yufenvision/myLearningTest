@@ -26,7 +26,8 @@ public class ThreadPoolCreate {
             KEEP_ALIVE_TIME,
             TimeUnit.SECONDS,//等待时间的单位为 TimeUnit.SECONDS
             new ArrayBlockingQueue<>(QUEUE_CAPACITY),//任务队列为 ArrayBlockingQueue,并且容量为 100;
-            new ThreadPoolExecutor.CallerRunsPolicy()//饱和策略为 CallerRunsPolicy
+            new ThreadPoolExecutor.CallerRunsPolicy()//饱和策略为 CallerRunsPolicy,不会丢弃任何一个任务请求，但是会降低对于新任务提交速度，影响程序的整体性能。另外，这个策略喜欢增加队列容量。
+//            new ThreadPoolExecutor.AbortPolicy()//抛出 RejectedExecutionException 来拒绝新任务的处理。spring的默认使用。
         );
 
         for (int i = 0; i < 10; i++) {

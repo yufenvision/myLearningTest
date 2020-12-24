@@ -17,9 +17,9 @@ public class MyRunnable implements Runnable{
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " Start. Time = " + DateTimeFormatter.ofPattern(datePattern).format(LocalDateTime.now()));
+        System.out.println(Thread.currentThread().getName() + " 开始时间 = " + DateTimeFormatter.ofPattern(datePattern).format(LocalDateTime.now()));
         processCommand();
-        System.out.println(Thread.currentThread().getName() + " End. Time = " + DateTimeFormatter.ofPattern(datePattern).format(LocalDateTime.now()));
+        System.out.println(Thread.currentThread().getName() + " 结束时间 = " + DateTimeFormatter.ofPattern(datePattern).format(LocalDateTime.now()));
     }
     private void processCommand() {
         try {
