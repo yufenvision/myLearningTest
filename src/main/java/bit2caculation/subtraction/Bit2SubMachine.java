@@ -17,9 +17,11 @@ public class Bit2SubMachine {
     private char[] b;
     private String result;
     private Integer bit;//几位运算
+    private boolean addSubFlag = false;//默认为加法，true为减法
 
-    public Bit2SubMachine(Integer bit) {
+    public Bit2SubMachine(Integer bit, boolean addSubFlag) {
         this.bit = bit;
+        this.addSubFlag  = addSubFlag;
     }
 
     public String getResult() {
@@ -37,7 +39,7 @@ public class Bit2SubMachine {
     public String add(String a1, String b1){
         if(a1.length() != b1.length() || a1.length() != bit)return "输入数字长度错误, 请检查";
         a1 = new StringBuffer(a1).reverse().toString();
-        b1 = new StringBuffer(b1).reverse().toString();
+        if(!addSubFlag)b1 = new StringBuffer(b1).reverse().toString();
         this.a = a1.toCharArray();
         this.b = b1.toCharArray();
         return count();
