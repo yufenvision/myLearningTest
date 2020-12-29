@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 public class Fruit {
-	
+
 	public void getWeight(){
 		System.out.println("水果重量");
 	}
