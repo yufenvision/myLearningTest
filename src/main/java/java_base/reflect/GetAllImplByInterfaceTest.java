@@ -44,7 +44,6 @@ public class GetAllImplByInterfaceTest {
             }
         });
         System.out.println("全项目扫描耗时：" + (System.currentTimeMillis() - two));
-//        getAllDirectory(file, new LinkedList<>()).forEach(v -> System.out.println(v));
 
     }
 
@@ -95,21 +94,7 @@ public class GetAllImplByInterfaceTest {
         return getAllSubClass(new File(classPath + packagePath), superClz);
     }
 
-    //尝试自己拼接文件全路径
-    public static LinkedList<String> getAllDirectory(File file, LinkedList<String> directoryNames){
-        if(file.isDirectory()){//文件夹
-            String parentFileName = directoryNames.size() != 0 ? directoryNames.getLast() + "." : "";
-            directoryNames.add(parentFileName + file.getName());
-            File[] subFile = file.listFiles();
-            for (File f : subFile) {
-                if(f.isDirectory()){
-                    directoryNames.add(file.getName() + "." + f.getName());
-//                    getAllDirectory(f, directoryNames);
-                }
-            }
-        }
-        return directoryNames;
-    }
+
 
 
 }
