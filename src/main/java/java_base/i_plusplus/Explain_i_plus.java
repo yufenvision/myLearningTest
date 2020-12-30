@@ -1,4 +1,4 @@
-package myTest.i_plusplus;
+package java_base.i_plusplus;
 
 public class Explain_i_plus {
 	
@@ -14,9 +14,9 @@ public class Explain_i_plus {
 		int q = 0;
 		int bq = 0;
 		int times = 100;
-		while(times>0){
+		while(times > 0){
 			int x = (int)(Math.random()*100);
-			if(x>50){
+			if(x > 50){
 				q++;
 			}else if(x == 50){
 			}else{
@@ -24,7 +24,7 @@ public class Explain_i_plus {
 			}
 			times--;
 		}
-		if(q>bq){
+		if(q > bq){
 			System.out.println("去");
 		}else{
 			System.out.println("不去");
@@ -33,8 +33,8 @@ public class Explain_i_plus {
 	
 	public static void cycle(){
 		int num = 0;
-		for(int i=0;i<9;i++){
-			num=num++;
+		for(int i = 0;i < 9;i++){
+			num = num++;
 		}
 		System.out.println(num);
 	}

@@ -1,6 +1,6 @@
-package myTest;
+package java_base.string;
 
-public class JudgeRepeat {
+public class JudgeStrRepeatNums {
 	public static void main(String[] args) {
 		
 		String a = "Hello World";
@@ -46,9 +46,9 @@ public class JudgeRepeat {
 	
 	
 	public static void judge(String str,String src){
-		if(src!=null&&!"".equals(src)){
+		if(src !=null && !"".equals(src)){
 			String strNew = src.replace(str, "");
-			System.out.println("重复次数为: "+(src.length()-strNew.length()));
+			System.out.println("重复次数为: "+(src.length() - strNew.length()));
 		}
 	}
 	public static void judgeContains(String str,String src){

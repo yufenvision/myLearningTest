@@ -36,7 +36,7 @@ public class GetAllImplByInterfaceTest {
         List<Class<SomeService>> classes = getImplsByAllScan(superClz);
         classes.forEach(v -> {
             try {
-                System.out.println(v.newInstance());
+                System.out.println(v.newInstance().getClass());
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {

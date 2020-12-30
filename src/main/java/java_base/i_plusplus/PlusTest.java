@@ -1,4 +1,4 @@
-package myTest.i_plusplus;
+package java_base.i_plusplus;
 
 public class PlusTest {
 	static int x,y;

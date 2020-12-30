@@ -25,7 +25,7 @@ public class Test {
 		list2.add(new Person("5","小黑",""));
 		
 		for (Person person : list2) {
-			if(! list1.contains(person)){
+			if(!list1.contains(person)){
 				System.out.println(person);
 			}
 		}
@@ -39,12 +39,14 @@ public class Test {
 			}
 			
 		});
+
+		System.out.println(list1);
 		int numEquals = 0;
 		for (int i = 0; i < list1.size(); i++) {
 			Person person = list1.get(i);
 //			if(list1.get(i).getTotalPoints() == list1.get(i).getTotalPoints())
 			person.setPhone(String.valueOf(i+1 - numEquals));
-			if(i > 0 && i < list1.size()){
+			if(i != 0){
 				 if(list1.get(i-1).getId() == person.getId()){
 					 numEquals++;
 					 person.setPhone(list1.get(i-1).getPhone());
@@ -53,11 +55,6 @@ public class Test {
 		}
 		
 		System.out.println(list1);
-		int x = 5;
-		if(x>6){
-			System.out.println("if:" + x);
-		}else if(x != 5){
-			System.out.println("elseif:" + x);
-		}
+
 	}
 }
