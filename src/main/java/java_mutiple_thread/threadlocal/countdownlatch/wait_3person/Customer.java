@@ -1,4 +1,4 @@
-package java_mutiple_thread.threadlocal.countdownlatch;
+package java_mutiple_thread.threadlocal.countdownlatch.wait_3person;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

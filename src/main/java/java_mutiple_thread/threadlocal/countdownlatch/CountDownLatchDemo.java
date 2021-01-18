@@ -35,20 +35,15 @@ public class CountDownLatchDemo {
         public void exec() {
             try {
                 System.out.println(Thread.currentThread().getName() + " execute task. ");
-                sleep(2);
+                TimeUnit.SECONDS.sleep(2);//其实是Thread.sleep的包装类，seconds可以直接写秒，不用写毫秒
                 System.out.println(Thread.currentThread().getName() + " finished task. ");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             } finally {
                 latch.countDown();
             }
         }
 
-        private void sleep(int seconds) {
-            try {
-                TimeUnit.SECONDS.sleep(seconds);//其实是Thread.sleep的包装类，seconds可以直接写秒，不用写毫秒
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
 
     }
 }
