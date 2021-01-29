@@ -9,20 +9,21 @@ public class CenterNumTest {
     public static void main(String[] args) {
         int[] nums = {};
         int[] num2 = {1,7,3,6,5,6};
-        System.out.println(pivotIndex(nums));
-
+        System.out.println(pivotIndex(num2));
     }
 
     public static int pivotIndex(int[] nums) {
         int left = 0;
         int right = 0;
+        for (int i = nums.length - 1; i > 0; i--) {
+            right = right + nums[i];
+        }
         for (int i = 0; i < nums.length; i++) {
-            for (int j = nums.length - 1; j > i; j--) {
-                right = right + nums[j];
-            }
             if(left == right) return i;
-            left = left + nums[i];
-            right = 0;
+            left += nums[i];
+            if(i + 1 < nums.length){
+                right -= nums[i + 1];
+            }
         }
         return -1;
     }
