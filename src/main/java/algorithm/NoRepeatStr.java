@@ -73,7 +73,7 @@ public class NoRepeatStr {
         int max = 0, left = 0;
         for (int i = 0; i < s.length(); i++) {
             if(map.containsKey(s.charAt(i))){
-                left = map.get(s.charAt(i)) + 1;
+                left = Math.max(left, map.get(s.charAt(i)) + 1);//只会往右边滑！
             }
             map.put(s.charAt(i), i);
             max = Math.max(max, i - left + 1);
