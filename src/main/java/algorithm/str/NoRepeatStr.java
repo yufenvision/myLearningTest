@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.str;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -66,7 +66,7 @@ public class NoRepeatStr {
     }
 
 
-
+    //滑动窗口
     public static int splipWindow(String s){
         if(s.length() == 0)return 0;
         Map<Character, Integer> map = new HashMap<>();
