@@ -11,7 +11,7 @@ public class BinarySearch {
         int[] a = {1,2,5,44,121,400,500,8888};
         System.out.println(binarySearch(121,a));
 
-        System.out.println(recurseSearch(0,a.length - 1, 121, a));
+        System.out.println(recurseSearch(121, a));
     }
 
     public static int binarySearch(int ele,int[] a){
@@ -46,4 +46,10 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    public static int recurseSearch(int ele, int[] src){
+        return recurseSearch(0, src.length -1 , ele, src);
+    }
+
+
 }
