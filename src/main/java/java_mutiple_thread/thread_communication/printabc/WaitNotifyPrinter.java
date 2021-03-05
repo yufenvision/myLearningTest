@@ -27,7 +27,7 @@ public class WaitNotifyPrinter extends Thread {
                 }
                 System.out.print(toABC(num)); // 执行到这里，表明满足条件，打印
                 state++;
-                lock.notifyAll(); // 调用notifyAll方法
+                lock.notifyAll();
             }
 
         }

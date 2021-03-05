@@ -1,5 +1,7 @@
 package java_mutiple_thread.thread_communication.printabc;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -16,9 +18,11 @@ public class PrintABC {
 //        Thread b = new Thread(p);
 //        Thread c = new Thread(p);
 
-        Thread a = new WaitNotifyPrinter(0);
-        Thread b = new WaitNotifyPrinter(1);
-        Thread c = new WaitNotifyPrinter(2);
+        WaitNotifyPrinter a = new WaitNotifyPrinter(0);
+        WaitNotifyPrinter b = new WaitNotifyPrinter(1);
+        WaitNotifyPrinter c = new WaitNotifyPrinter(2);
+        System.out.println(a.lock == b.lock && b.lock == c.lock);
+        System.out.println(a.state == b.state && b.state == c.state);
 
         a.start();
         b.start();
