@@ -1,5 +1,6 @@
 package java_base.functional_code.lambda.stream;
 
+import com.sun.deploy.util.StringUtils;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -32,7 +33,6 @@ public class Collectors2Map {
         );
 
         System.out.println(map);
-
     }
 
 }
