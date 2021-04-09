@@ -19,7 +19,7 @@ import javax.xml.ws.Endpoint;
 
 //给类添加上@WebService注解后,代表发布一个WebService服务,类中所有的非静态方法都将会对外公布
 @WebService(serviceName="PhoneManager",//修改服务名
-        targetNamespace="http://www.baidu.com") //修改命名空间 ，默认包名，取反
+        targetNamespace="http://myWebService.com") //修改命名空间，默认包名，取反
 //声明该业务类对外提供webservice服务,默认只是对public修饰的方法,对外以webservice形式发布
 public class PhoneService {
 
