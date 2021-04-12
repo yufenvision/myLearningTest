@@ -5,7 +5,7 @@ import java.util.Observable;
 /**
  * @Author: dyf
  * @Date: 2019/5/29 22:51
- * @Description:
+ * @Description: 被观察者
  */
 public class WeatherData extends Observable {
     private float temperature;

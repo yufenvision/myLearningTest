@@ -8,7 +8,7 @@ import java.util.Observer;
 /**
  * @Author: dyf
  * @Date: 2019/5/30 22:23
- * @Description:
+ * @Description: 观察者
  */
 public class CurrentConditionDisplay implements Observer,DisplayElement {
     private Observable observable;
