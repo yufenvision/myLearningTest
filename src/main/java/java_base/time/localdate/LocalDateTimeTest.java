@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @Description:
+ * @Description: 同时可以处理年月日和时分秒
  * @Author: dyf
  * @Date: 2020/11/18 13:02
  */
