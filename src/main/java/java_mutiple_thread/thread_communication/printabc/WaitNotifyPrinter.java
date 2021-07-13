@@ -17,7 +17,7 @@ public class WaitNotifyPrinter extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
-            synchronized (lock){
+            synchronized (lock){//这里的lock直接用WaitNotifyPrinter.class对象也可以
                 while (state % 3 != num){
                     try {
                         lock.wait();

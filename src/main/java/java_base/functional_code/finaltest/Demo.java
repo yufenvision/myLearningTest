@@ -1,8 +1,11 @@
 package java_base.functional_code.finaltest;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * @Author: dyf
@@ -14,7 +17,7 @@ public class Demo {
     private static Integer num = 0;
 
     private static List<Integer> list = Arrays.asList(new Integer[]{1, 2, 3});
-
+    private static Map<String, Object> cacheMap = new HashMap<>(2);
     static Consumer consumer = (v) -> {
         System.out.println(v);
         num = 2;
@@ -27,7 +30,8 @@ public class Demo {
 
     public static void main(String[] args) {
         consumer.accept(num);
-
+        System.out.println(cacheMap.put("key", "value"));
+        System.out.println(cacheMap.put("key", "value1"));
     }
 
 }
