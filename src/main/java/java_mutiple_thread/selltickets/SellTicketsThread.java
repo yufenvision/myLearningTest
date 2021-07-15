@@ -13,6 +13,11 @@ public class SellTicketsThread extends Thread{
 	
 	public void run() {
 		while(tickets > 0){
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			System.out.println(getName() + ": 正在售出第 " + tickets-- + " 张票。");
 		}
 	}
